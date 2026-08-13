@@ -57,7 +57,7 @@
     <div class="flex flex-col mr-15 ml-15 mt-10 text-l">
         <div class="flex justify-between mb-3">
             <h2 class="font-bold">دسته بندی های محبوب</h2>
-            <a class="text-blue-500 flex" href="#">
+            <a class="text-blue-500 flex" href="{{ route('products') }}">
                 مشاهده دسته بندی ها
                 <svg class="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
@@ -95,7 +95,7 @@
     <div class="flex flex-col mr-15 ml-15 mt-10 text-l ">
         <div class="flex justify-between mb-3">
             <h2 class="font-bold">جدید ترین محصولات</h2>
-            <a class="text-blue-500 flex" href="#">مشاهده همه محصولات
+            <a class="text-blue-500 flex" href="{{ route('products') }}">مشاهده همه محصولات
                 <svg class="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
                     </path>
@@ -194,7 +194,7 @@
     <article class="flex flex-col mr-15 ml-15 mt-10 text-l">
         <div class="flex justify-between mb-3">
             <h2 class="font-bold">آخرین مقالات</h2>
-            <a class="text-blue-500 flex" href="#">
+            <a class="text-blue-500 flex" href="{{ route('articles') }}">
                 مشاهده همه مقالات
                 <svg class="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">

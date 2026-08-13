@@ -13,10 +13,14 @@
             <div>
                 <h4 class="text-lg font-semibold mb-4">لینک‌های مفید</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="text-gray-400 hover:text-white transition">صفحه اصلی</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition">محصولات</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition">مقالات</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition">درباره ما</a></li>
+                    <li><a href="{{ route('index') }}" class="text-gray-400 hover:text-white transition">صفحه اصلی</a>
+                    </li>
+                    <li><a href="{{ route('products') }}" class="text-gray-400 hover:text-white transition">محصولات</a>
+                    </li>
+                    <li><a href="{{ route('articles') }}" class="text-gray-400 hover:text-white transition">مقالات</a>
+                    </li>
+                    <li><a href="{{ route('contact') }}" class="text-gray-400 hover:text-white transition">درباره ما</a>
+                    </li>
                 </ul>
             </div>
             <div>
