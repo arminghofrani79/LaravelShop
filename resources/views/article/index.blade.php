@@ -23,7 +23,7 @@
                 <span class="text-gray-400 text-xs">۲ اردیبهشت ۱۴۰۵</span>
                 <div
                     class="h-10 bg-gray-800 hover:bg-gray-900 rounded-lg flex items-center justify-center transition-colors px-6">
-                    <a href="#"
+                    <a href="{{ route('article') }}"
                         class="text-white text-sm font-medium w-full h-full flex items-center justify-center">
                         مطالعه مقاله
                     </a>
@@ -82,7 +82,7 @@
                         <span class="text-gray-400 text-xs">۲ اردیبهشت ۱۴۰۵</span>
                         <div
                             class="h-10 hover:text-gray-900 rounded-lg flex items-center justify-center transition-colors px-6">
-                            <a href="#"
+                            <a href="{{ route('article') }}"
                                 class="text-black text-sm font-medium w-full h-full flex items-center justify-center">
                                 مطالعه مقاله
                             </a>

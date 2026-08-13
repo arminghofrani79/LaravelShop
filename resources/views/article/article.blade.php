@@ -56,7 +56,7 @@
 
     <!-- redirect to articles page -->
     <div class="flex justify-center md:justify-start pt-6 border-t border-gray-100">
-        <a href="#"
+        <a href="{{ route('articles') }}"
             class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">

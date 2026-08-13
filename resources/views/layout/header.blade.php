@@ -38,16 +38,16 @@
                 alt="لوگو فروشگاه">
 
             <nav class="hidden md:flex items-center space-x-8 w-100 justify-between">
-                <a href="#" class="text-gray-600 hover:text-blue-600 transition font-medium">
+                <a href="{{ route('index') }}" class="text-gray-600 hover:text-blue-600 transition font-medium">
                     صفحه اصلی
                 </a>
-                <a href="#" class="text-gray-600 hover:text-blue-600 transition font-medium">
+                <a href="{{ route('products') }}" class="text-gray-600 hover:text-blue-600 transition font-medium">
                     محصولات
                 </a>
-                <a href="#" class="text-gray-600 hover:text-blue-600 transition font-medium">
+                <a href="{{ route('articles') }}" class="text-gray-600 hover:text-blue-600 transition font-medium">
                     مقالات
                 </a>
-                <a href="#" class="text-gray-600 hover:text-blue-600 transition font-medium">
+                <a href="{{ route('contact') }}" class="text-gray-600 hover:text-blue-600 transition font-medium">
                     درباره ما
                 </a>
             </nav>
