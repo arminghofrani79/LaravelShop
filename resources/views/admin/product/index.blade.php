@@ -56,56 +56,40 @@
             </thead>
             <tbody class="text-gray-700">
 
-                <!-- row 1 -->
-                <tr class="border-b border-gray-50">
-                    <td class="py-4 flex items-center gap-3 justify-start">
-                        <img src="https://picsum.photos/id/21/50/50" alt="product"
-                            class="w-10 h-10 object-contain rounded border border-gray-100 bg-gray-50">
-                        <span class="font-medium text-gray-800 text-sm text-right">WH-1000XM5</span>
-                    </td>
-                    <td class="py-4 text-center text-xs">هدفون و هدرفری</td>
-                    <td class="py-4 text-center font-medium text-gray-800">۲,۷۸۰,۰۰۰</td>
-                    <td class="py-4 text-center">۱۲</td>
-                    <td class="py-4 text-center"><span
-                            class="bg-green-100 text-green-700 px-3 py-1 rounded-lg text-[10px] font-medium">فعال</span>
-                    </td>
-                    <td class="py-4 text-center flex justify-center gap-2">
-                        <a href="{{ route('admin-edit-product') }}"
-                            class="w-8 h-8 flex items-center justify-center border border-blue-100 text-blue-600 hover:bg-blue-50 rounded-lg transition">
-                            <img class="h-4 w-4" src="{{ asset('images/icons/edit.png') }}" alt="">
-                        </a>
+                @foreach ($products as $product)
+                    <tr class="border-b border-gray-50">
+                        <td class="py-4 flex items-center gap-3 justify-start">
+                            <img src="{{ asset('storage/images/products/' . $product->image) }}" alt="product"
+                                class="w-10 h-10 object-contain rounded border border-gray-100 bg-gray-50">
+                            <span class="font-medium text-gray-800 text-sm text-right">{{ $product->name }}</span>
+                        </td>
+                        <td class="py-4 text-center text-xs">{{ $product->category->name }}</td>
+                        <td class="py-4 text-center font-medium text-gray-800">{{ $product->price }}</td>
+                        <td class="py-4 text-center">{{ $product->stock }}</td>
+                        <td class="py-4 text-center"><span
+                                class="{{ $product->status == 1 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700' }}px-3 py-1 rounded-lg text-[10px]
+                                font-medium">{{ $product->status ? 'فعال' : 'غیرفعال' }}</span>
+                        </td>
+                        <td class="py-4 text-center flex justify-center gap-2">
+                            <a href="{{ route('admin-edit-product', ['product' => $product->id]) }}"
+                                class="w-8 h-8 flex items-center justify-center border border-blue-100 text-blue-600 hover:bg-blue-50 rounded-lg transition">
+                                <img class="h-4 w-4" src="{{ asset('images/icons/edit.png') }}" alt="">
+                            </a>
 
-                        <button
-                            class="w-8 h-8 flex items-center justify-center border border-red-100 text-red-500 hover:bg-red-50 rounded-lg transition">
-                            <img class="h-4 w-4" src="{{ asset('images/icons/delete.png') }}" alt="">
-                        </button>
-                    </td>
-                </tr>
+                            <form method="POST"
+                                action="{{ route('admin-delete-product', ['product' => $product->id]) }}"
+                                class="w-8 h-8 flex items-center justify-center border border-red-100 text-red-500 hover:bg-red-50 rounded-lg transition">
+                                @csrf @method('DELETE')
+                                <button type="submit">
+                                    <img class="h-4 w-4" src="{{ asset('images/icons/delete.png') }}"
+                                        alt=""></button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
 
-                <!-- row 2 -->
-                <tr class="border-b border-gray-50">
-                    <td class="py-4 flex items-center gap-3 justify-start">
-                        <img src="https://picsum.photos/id/96/50/50" alt="product"
-                            class="w-10 h-10 object-contain rounded border border-gray-100 bg-gray-50">
-                        <span class="font-medium text-gray-800 text-sm text-right">Galaxy Watch 6</span>
-                    </td>
-                    <td class="py-4 text-center text-xs">ساعت هوشمند</td>
-                    <td class="py-4 text-center font-medium text-gray-800">۴,۹۹۰,۰۰۰</td>
-                    <td class="py-4 text-center">۱۸</td>
-                    <td class="py-4 text-center"><span
-                            class="bg-red-100 text-red-700 px-3 py-1 rounded-lg text-[10px] font-medium">غیر فعال</span>
-                    </td>
-                    <td class="py-4 text-center flex justify-center gap-2">
-                        <a href="{{ route('admin-edit-product') }}"
-                            class="w-8 h-8 flex items-center justify-center border border-blue-100 text-blue-600 hover:bg-blue-50 rounded-lg transition">
-                            <img class="h-4 w-4" src="{{ asset('images/icons/edit.png') }}" alt="">
-                        </a>
-                        <button
-                            class="w-8 h-8 flex items-center justify-center border border-red-100 text-red-500 hover:bg-red-50 rounded-lg transition">
-                            <img class="h-4 w-4" src="{{ asset('images/icons/delete.png') }}" alt="">
-                        </button>
-                    </td>
-                </tr>
+
+
             </tbody>
         </table>
     </div>
