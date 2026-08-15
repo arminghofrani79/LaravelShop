@@ -7,12 +7,12 @@
             class="w-full md:w-1/2 flex flex-col gap-4 border-2 border-gray-200 rounded-2xl p-6 md:p-8 bg-gray-50 shadow-lg">
 
             <div>
-                <h1 class="font-bold text-2xl md:text-3xl text-gray-800 pb-2">ساعت هوشمند شیائومی</h1>
+                <h1 class="font-bold text-2xl md:text-3xl text-gray-800 pb-2">{{ $product->name }}</h1>
                 <p class="text-blue-600 font-bold text-2xl">
-                    ۹,۹۰۰,۰۰۰ <span class="text-sm text-gray-400 font-normal">تومان</span>
+                    {{ number_format($product->price) }} <span class="text-sm text-gray-400 font-normal">تومان</span>
                 </p>
                 <p class="text-sm text-gray-500 mt-4 leading-relaxed">
-                    ساعت هوشمند شیائومی امکانات پیشرفته‌ای دارد و مناسب برای همراهی در زندگی سالم و هوشمند شماست.
+                    {{ $product->description }}
                 </p>
             </div>
 
@@ -51,22 +51,43 @@
     <div class="mt-8">
         <h class="font-bold p-7 mb-4">محصولات مرتبط</h>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-3 mt-8">
-            @for ($i = 1; $i <= 4; $i++)
-                <div
-                    class="flex flex-col bg-white rounded-2xl shadow-md hover:shadow-xl hover:scale-105 p-3 border border-gray-200 transition-all duration-300">
-                    <div class="w-full h-40 overflow-hidden rounded-lg">
+        @if ($relatedProducts->isNotEmpty())
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-4">
+                @foreach ($relatedProducts as $related)
+                    <div
+                        class="flex flex-col bg-white rounded-2xl shadow-md hover:shadow-xl hover:scale-105 p-3 border border-gray-200 transition-all duration-300 group">
+                        {{-- تصویر محصول --}}
+                        <div class="w-full h-40 overflow-hidden rounded-lg relative">
+                            <img class="w-full h-full object-contain p-2 group-hover:scale-110 transition-transform duration-300"
+                                src="{{ asset('storage/images/products/' . $related->image) }}"
+                                alt="{{ $related->name }}">
+                        </div>
 
-                        <img class="w-full h-full object-contain p-2" src="{{ asset('images/products/watch1.jpeg') }}"
-                            alt="ساعت مدل ۱">
+                        {{-- نام محصول --}}
+                        <h2 class="font-bold text-lg text-gray-800 mt-3 text-center line-clamp-1">
+                            {{ $related->name }}
+                        </h2>
+
+                        {{-- قیمت محصول --}}
+                        <p class="text-blue-600 font-bold text-xl mt-1 text-center">
+                            {{ number_format($related->price) }} <span
+                                class="text-sm text-gray-500 font-normal">تومان</span>
+                        </p>
+
+                        {{-- لینک مشاهده محصول (اختیاری) --}}
+                        <a href="{{ route('product.show', $related->id) }}"
+                            class="block mt-2 text-center text-xs text-blue-500 hover:underline">
+                            مشاهده جزئیات
+                        </a>
                     </div>
-                    <h2 class="font-bold text-lg text-gray-800 mt-3 text-center line-clamp-1">ساعت مدل ۱</h2>
-                    <p class="text-blue-600 font-bold text-xl mt-1 text-center">
-                        ۱۲,۰۰۰,۰۰۰ <span class="text-sm text-gray-500 font-normal">تومان</span>
-                    </p>
-                </div>
-            @endfor
-        </div>
+                @endforeach
+            </div>
+        @else
+            <div class="text-center text-gray-500 py-8 border border-dashed border-gray-300 rounded-xl bg-gray-50 mt-4">
+                <p>هیچ محصول مرتبطی با این دسته‌بندی پیدا نشد.</p>
+            </div>
+        @endif
+
     </div>
 </main>
 

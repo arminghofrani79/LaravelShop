@@ -1,4 +1,4 @@
-@include('profile.layout.side')
+@include('user.layout.side')
 <!-- left col -->
 <div class="lg:col-span-3 flex flex-col gap-6">
 
@@ -12,22 +12,17 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
             <div class="flex flex-col gap-2">
                 <label class="text-sm text-gray-500">نام</label>
-                <input readonly type="text" placeholder="محمد"
-                    class="font-medium text-gray-800 text-sm bg-gray-50 p-2 rounded outline-0">
-            </div>
-            <div class="flex flex-col gap-2">
-                <label class="text-sm text-gray-500">نام خانوادگی</label>
-                <input readonly type="text" placeholder="محمدی"
+                <input readonly type="text" placeholder="{{ Auth::user()->name }}"
                     class="font-medium text-gray-800 text-sm bg-gray-50 p-2 rounded outline-0">
             </div>
             <div class="flex flex-col gap-2">
                 <label class="text-sm text-gray-500">موبایل</label>
-                <input readonly type="text" placeholder="09146911909"
+                <input readonly type="text" placeholder="{{ Auth::user()->mobile }}"
                     class="font-medium text-gray-800 text-sm bg-gray-50 p-2 rounded outline-0">
             </div>
             <div class="flex flex-col gap-2">
                 <label class="text-sm text-gray-500">ایمیل</label>
-                <input readonly type="text" placeholder="m0hamadi@ifo.com"
+                <input readonly type="text" placeholder="{{ Auth::user()->email }}"
                     class="font-medium text-gray-800 text-sm bg-gray-50 p-2 rounded outline-0">
             </div>
         </div>

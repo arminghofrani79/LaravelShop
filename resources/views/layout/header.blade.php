@@ -60,11 +60,40 @@
                     type="text" placeholder="جستجو برای محصولات...">
             </div>
 
-            <div class="flex items-center space-x-4 space-x-reverse">
-                <a href="#" class="bg-gray-500 text-white px-5 py-2 rounded-lg hover:bg-gray-700 transition">
-                    ورود / ثبت‌نام
-                </a>
+            <div class="flex items-center gap-0.5">
+                @auth
+                    {{-- username --}}
+                    <div>
+                        {{-- بعدا برای ادمین هم آیکون تعریف گردد --}}
+                        {{-- @if (Auth::user()->admin)
+                            
+                        @endif --}}
+                        <span class="text-sm text-gray-700 font-medium">سلام {{ Auth::user()->name }}!</span>
+                    </div>
 
+                    {{-- profile button --}}
+                    <a href="{{ route('user-profile') }}"
+                        class="flex justify-center items-center text-white px-1 py-1 rounded-lg hover:bg-gray-700 transition cursor-pointer">
+                        <img class="w-4 h-4" src="{{ asset('images/icons/profile2.png') }}" alt="پروفایل">
+                    </a>
+
+                    {{-- exit button --}}
+                    <div class="flex justify-center items-center rounded-lg hover:bg-gray-700 transition cursor-pointer">
+                        <form action="{{ route('logout') }}" method="POST" class="m-0 p-0">
+                            @csrf
+                            <button type="submit" class="flex items-center justify-center px-1 py-1 w-full h-full">
+                                <img class="w-4 h-4" src="{{ asset('images/icons/exit.png') }}" alt="خروج">
+                            </button>
+                        </form>
+                    </div>
+                @endauth
+
+                @guest
+                    <a href="{{ route('show-login') }}"
+                        class="bg-gray-500 text-white px-5 py-2 rounded-lg hover:bg-gray-700 transition cursor-pointer">
+                        ورود / ثبت‌نام
+                    </a>
+                @endguest
             </div>
         </div>
 
