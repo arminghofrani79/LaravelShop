@@ -10,17 +10,14 @@
 
     <!-- article image -->
     <div class="w-full mb-6">
-        <img src="{{ asset('images/articles/article1.png') }}" alt="تصویر مقاله"
+        <img src="{{ asset('storage/images/articles/' . $article->image) }}" alt="تصویر مقاله"
             class="w-full h-64 md:h-96 object-cover rounded-xl shadow-sm">
     </div>
 
     <!-- category & title -->
     <div class="flex flex-col gap-3 mb-8">
-        <span class="bg-gray-100 text-gray-600 rounded-full px-3 py-1 w-fit text-xs font-medium">
-            راهنمای خرید
-        </span>
         <h1 class="text-2xl md:text-4xl font-bold text-gray-800">
-            راهنمای خرید ساعت در سال 1405
+            {{ $article->title }}
         </h1>
     </div>
 
@@ -28,29 +25,18 @@
     <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500 border-b border-gray-200 pb-6 mb-6">
         <div class="flex items-center gap-2">
             <img class="w-4 h-4" src="{{ asset('images/icons/profile2.png') }}" alt="">
-            <span>نویسنده: علی محمدی</span>
+            <span>نویسنده: آرمین غفرانی</span>
         </div>
         <div class="flex items-center gap-2">
             <img class="w-4 h-4" src="{{ asset('images/icons/calendar.png') }}" alt="">
-            <span>۲ اردیبهشت ۱۴۰۵</span>
+            <span>{{ $article->created_at }}</span>
         </div>
     </div>
 
     <!-- article paragraph -->
     <div class="text-gray-700 text-justify leading-relaxed text-base md:text-lg space-y-6 mb-10">
         <p>
-            در این راهنمای قصد دارم به بررسی دقیق نکات مهم قبل از خرید ساعت بپردازیم. از انتخاب موتور مناسب یا دستبند با
-            کیفیت گرفته تا بررسی برندها و قیمت‌ها، همه مواردی است که در این مقاله به آنها پرداخته شده است.
-        </p>
-        <p>
-            یکی از مهم‌ترین سوالاتی که برای خریداران پیش می‌آید این است که «ساعت مناسب برای من کدام است؟». در پاسخ باید
-            گفت که بستگی به سلیقه، بودجه و نیاز روزمره شما دارد. اگر به دنبال یک ساعت لوکس هستید، برندهای سوئیسی
-            گزینه‌های بهتری هستند و اگر به دنبال کاربری روزمره و ورزشی هستید، برندهای ژاپنی و یا ساعت‌های هوشمند انتخاب
-            هوشمندانه‌تری خواهند بود.
-        </p>
-        <p>
-            فراموش نکنید که ساعت نه تنها یک ابزار برای دیدن زمان است، بلکه یک اکسسوری مهم در استایل شخصی شما محسوب
-            می‌شود. پس در انتخاب آن دقت کافی را به خرج دهید.
+            {{ $article->content }}
         </p>
     </div>
 

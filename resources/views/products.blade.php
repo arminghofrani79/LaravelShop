@@ -11,21 +11,14 @@
         <aside class="w-full md:w-72 flex-shrink-0 space-y-6">
             <div class="flex flex-col gap-2 p-4 bg-white rounded-xl shadow-md border border-gray-200">
                 <h2 class="font-bold text-lg text-gray-800 border-b border-gray-200 pb-2 mb-1">دسته‌بندی محصولات</h2>
-                <label class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition-colors">
-                    <img class="rounded-md w-6 h-6 object-contain" src="{{ asset('images/icons/watch.png') }}"
-                        alt="ساعت مردانه">
-                    <span class="text-sm text-gray-700">ساعت مردانه</span>
-                </label>
-                <label class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition-colors">
-                    <img class="rounded-md w-6 h-6 object-contain" src="{{ asset('images/icons/watch.png') }}"
-                        alt="ساعت زنانه">
-                    <span class="text-sm text-gray-700">ساعت زنانه</span>
-                </label>
-                <label class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition-colors">
-                    <img class="rounded-md w-6 h-6 object-contain" src="{{ asset('images/icons/watch.png') }}"
-                        alt="ساعت کودکانه">
-                    <span class="text-sm text-gray-700">ساعت کودکانه</span>
-                </label>
+                @foreach ($categories as $category)
+                    <label class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition-colors">
+                        <img class="rounded-md w-6 h-6 object-contain" src="{{ asset('images/icons/watch.png') }}"
+                            alt="ساعت کودکانه">
+                        <span class="text-sm text-gray-700">{{ $category->name }}</span>
+                    </label>
+                @endforeach
+
             </div>
 
             <div class="flex flex-col gap-2 p-4 bg-white rounded-xl shadow-md border border-gray-200">
@@ -55,24 +48,41 @@
         </aside>
 
         {{-- products grid --}}
-        <section class="flex-1">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                @for ($i = 1; $i <= 8; $i++)
-                    <div
-                        class="flex flex-col bg-white rounded-2xl shadow-md hover:shadow-xl hover:scale-105 p-3 border border-gray-200 transition-all duration-300">
-                        <div class="relative w-full h-56 overflow-hidden rounded-lg">
+        {{-- products grid --}}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            @foreach ($products as $product)
+                <a href="{{ route('product-show', ['product' => $product->id]) }}"
+                    class="block transform transition-all duration-300 hover:scale-105 cursor-pointer">
 
+                    <div
+                        class="flex flex-col bg-white rounded-2xl shadow-md hover:shadow-xl p-3 border border-gray-200 transition-all duration-300 h-full">
+                        {{-- بخش عکس --}}
+                        <div class="relative w-full h-56 overflow-hidden rounded-lg">
+                            {{-- مسیر عکس داینامیک --}}
                             <img class="w-full h-full object-contain p-2"
-                                src="{{ asset('images/products/watch1.jpeg') }}" alt="ساعت مدل ۱">
-                            <div
-                                class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-lg z-10">
-                                ۲۰٪ تخفیف
-                            </div>
+                                src="{{ asset('storage/images/products/' . $product->image) }}"
+                                alt="{{ $product->name }}">
+
+                            {{-- برچسب تخفیف (فقط اگر تخفیف بزرگتر از ۰ باشد) --}}
+                            @if ($product->discount > 0)
+                                <div
+                                    class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-lg z-10">
+                                    {{ $product->discount }}٪ تخفیف
+                                </div>
+                            @endif
                         </div>
-                        <h2 class="font-bold text-lg text-gray-800 mt-3 text-center line-clamp-1">ساعت مدل ۱</h2>
+
+                        {{-- نام محصول --}}
+                        <h2 class="font-bold text-lg text-gray-800 mt-3 text-center line-clamp-1">{{ $product->name }}
+                        </h2>
+
+                        {{-- قیمت محصول --}}
                         <p class="text-blue-600 font-bold text-xl mt-1 text-center">
-                            ۱۲,۰۰۰,۰۰۰ <span class="text-sm text-gray-500 font-normal">تومان</span>
+                            {{ number_format($product->price) }}
+                            <span class="text-sm text-gray-500 font-normal">تومان</span>
                         </p>
+
+                        {{-- دکمه افزودن به سبد خرید --}}
                         <button
                             class="flex items-center justify-center gap-2 w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-2.5 px-4 rounded-lg transition-all duration-200 mt-3 shadow-md hover:shadow-lg">
                             <img class="w-5 h-5 object-contain filter brightness-0 invert"
@@ -80,9 +90,13 @@
                             افزودن به سبد خرید
                         </button>
                     </div>
-                @endfor
-            </div>
-        </section>
+                </a>
+            @endforeach
+        </div>
+
+
+    </div>
+    </section>
     </div>
 </main>
 

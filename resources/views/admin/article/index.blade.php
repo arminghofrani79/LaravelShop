@@ -44,40 +44,41 @@
         <table class="w-full text-sm min-w-[600px]">
             <thead>
                 <tr class="text-gray-500 border-b border-gray-100">
-                    <th class="text-right pb-4 font-medium pl-4">عنوان مقاله</th>
-                    <th class="text-center pb-4 font-medium">دسته‌بندی</th>
-                    <th class="text-center pb-4 font-medium">نویسنده</th>
+                    <th class="text-right pb-4 font-medium pl-4">تصویر</th>
+                    <th class="text-center pb-4 font-medium">عنوان مقاله</th>
                     <th class="text-center pb-4 font-medium">وضعیت</th>
                     <th class="text-center pb-4 font-medium">عملیات</th>
                 </tr>
             </thead>
             <tbody class="text-gray-700">
+                @foreach ($articles as $article)
+                    <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition">
+                        <td class="py-4 flex items-center gap-3 pl-4">
+                            <img src="https://picsum.photos/id/10/50/50" alt="article"
+                                class="w-10 h-10 object-cover rounded border border-gray-100 bg-gray-50">
+                            <span class="font-medium text-gray-800 text-sm"></span>
+                        </td>
+                        <td class="py-4 text-center text-gray-600 text-xs">{{ $article->title }}</td>
+                        <td
+                            class="{{ $article->status == 1 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700' }} py-4 text-center text-gray-600 text-xs">
+                            {{ $article->status ? 'فعال' : 'غیرفعال' }}</td>
 
-                {{-- row 1 --}}
-                <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition">
-                    <td class="py-4 flex items-center gap-3 pl-4">
-                        <img src="https://picsum.photos/id/10/50/50" alt="article"
-                            class="w-10 h-10 object-cover rounded border border-gray-100 bg-gray-50">
-                        <span class="font-medium text-gray-800 text-sm">راهنمای خرید لپ‌تاپ مناسب برای
-                            برنامه‌نویسان</span>
-                    </td>
-                    <td class="py-4 text-center text-gray-600 text-xs">آموزش</td>
-                    <td class="py-4 text-center text-gray-600 text-xs">علی محمدی</td>
-                    <td class="py-4 text-center">
-                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded text-[10px] font-medium">انتشار
-                            یافته</span>
-                    </td>
-                    <td class="py-4 text-center flex justify-center gap-2">
-                        <a href="{{ route('admin-edit-article') }}"
-                            class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-600 hover:bg-blue-50 rounded-lg transition">
-                            <img class="w-4 h-4" src="{{ asset('images/icons/edit.png') }}" alt="">
-                        </a>
-                        <button
-                            class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-500 hover:bg-red-50 rounded-lg transition">
-                            <img class="w-4 h-4" src="{{ asset('images/icons/delete.png') }}" alt="">
-                        </button>
-                    </td>
-                </tr>
+                        <td class="py-4 text-center flex justify-center gap-2">
+                            <a href="{{ route('admin-edit-article', ['article' => $article->id]) }}"
+                                class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-600 hover:bg-blue-50 rounded-lg transition">
+                                <img class="w-4 h-4" src="{{ asset('images/icons/edit.png') }}" alt="">
+                            </a>
+                            <form method="POST" action="{{ route('admin-delete-article', ['article' => $article->id]) }}"
+                                class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-500 hover:bg-red-50 rounded-lg transition">
+                                @csrf @method('DELETE')
+                                <button type="submit"><img class="w-4 h-4" src="{{ asset('images/icons/delete.png') }}"
+                                        alt="delete"></button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+
+
 
             </tbody>
         </table>
