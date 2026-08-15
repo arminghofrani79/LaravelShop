@@ -51,37 +51,42 @@
                 <tr class="text-gray-500 border-b border-gray-100">
                     <th class="text-right pb-4 font-medium pl-4">نام دسته‌بندی</th>
                     <th class="text-center pb-4 font-medium">اسلاگ</th>
-                    <th class="text-center pb-4 font-medium">تعداد محصولات</th>
                     <th class="text-center pb-4 font-medium">وضعیت</th>
                     <th class="text-center pb-4 font-medium">عملیات</th>
                 </tr>
             </thead>
             <tbody class="text-gray-700">
 
-                <!-- row 1-->
-                <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition">
-                    <td class="py-4 flex items-center gap-3 pl-4">
-                        <div class="w-8 h-8 bg-gray-50 text-gray-600 rounded-lg flex items-center justify-center">
-                            <img class="w-5 h-5" src="{{ asset('images/icons/watch.png') }}" alt="">
-                        </div>
-                        <span class="font-medium text-gray-800">لپ‌تاپ</span>
-                    </td>
-                    <td class="py-4 text-center text-gray-600">laptop</td>
-                    <td class="py-4 text-center font-medium text-gray-800">28</td>
-                    <td class="py-4 text-center">
-                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-md text-xs font-medium">فعال</span>
-                    </td>
-                    <td class="py-4 text-center flex justify-center gap-2">
-                        <a href="{{ route('admin-edit-category') }}"
-                            class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-600 hover:bg-blue-50 rounded-lg transition">
-                            <img class="w-4 h-4" src="{{ asset('images/icons/edit.png') }}" alt="">
-                        </a>
-                        <button
-                            class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-500 hover:bg-red-50 rounded-lg transition">
-                            <img class="w-4 h-4" src="{{ asset('images/icons/delete.png') }}" alt="">
-                        </button>
-                    </td>
-                </tr>
+                @foreach ($categories as $category)
+                    <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition">
+                        <td class="py-4 flex items-center gap-3 pl-4">
+                            <div class="w-8 h-8 bg-gray-50 text-gray-600 rounded-lg flex items-center justify-center">
+                                <img class="w-5 h-5" src="{{ asset('images/icons/watch.png') }}" alt="">
+                            </div>
+                            <span class="font-medium text-gray-800">{{ $category->name }}</span>
+                        </td>
+                        <td class="py-4 text-center text-gray-600">{{ $category->slug }}</td>
+                        <td class="py-4 text-center">
+                            <span
+                                class="{{ $category->status == 1 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700' }} px-3 py-1 rounded-md text-xs font-medium">{{ $category->status == 1 ? 'فعال' : 'غیر فعال' }}</span>
+                        </td>
+                        <td class="py-4 text-center flex justify-center gap-2">
+                            <a href="{{ route('admin-edit-category', ['category' => $category->id]) }}"
+                                class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-600 hover:bg-blue-50 rounded-lg transition">
+                                <img class="w-4 h-4" src="{{ asset('images/icons/edit.png') }}" alt="">
+                            </a>
+                            <form method="POST"
+                                action="{{ route('admin-delete-category', ['category' => $category->id]) }}"
+                                class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-500 hover:bg-red-50 rounded-lg transition">
+                                @csrf @method('DELETE')
+                                <button>
+                                    <img class="w-4 h-4" src="{{ asset('images/icons/delete.png') }}" alt="">
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+
             </tbody>
         </table>
     </div>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -66,26 +68,45 @@ Route::get('/adminpanel', function () {
 })->name('adminindex');
 
 //""""product side""""//
-Route::get('/adminpanel/products', function () {
-    return view('admin/product/index');
-})->name('adminproducts');
-Route::get('/adminpanel/products/create', function () {
-    return view('admin/product/create');
-})->name('admin-create-product');
-Route::get('/adminpanel/products/edit', function () {
-    return view('admin/product/edit');
-})->name('admin-edit-product');
+// show
+Route::get('/adminpanel/products', [ProductController::class, 'index'])->name('adminproducts');
+// create
+Route::get('/adminpanel/products/create', [ProductController::class, 'create'])->name('admin-create-product');
+Route::post('/adminpanel/products/store', [ProductController::class, 'store'])->name('admin-store-product');
+// // update
+Route::get('/adminpanel/products/{product}/edit', [ProductController::class, 'edit'])->name('admin-edit-product');
+Route::put('/adminpanel/products/{product}', [ProductController::class, 'update'])->name('admin-update-product');
+// // delete
+Route::delete('/adminpanel/products/{product}', [ProductController::class, 'destroy'])->name('admin-delete-product');
+
 
 //""""category side""""//
-Route::get('/adminpanel/categories', function () {
-    return view('admin/category/index');
-})->name('admincategories');
-Route::get('/adminpanel/categories/create', function () {
-    return view('admin/category/create');
-})->name('admin-create-category');
-Route::get('/adminpanel/categories/edit', function () {
-    return view('admin/category/edit');
-})->name('admin-edit-category');
+// show
+Route::get('/adminpanel/categories', [CategoryController::class, 'index'])->name('admincategories');
+// create
+Route::get('/adminpanel/categories/create', [CategoryController::class, 'create'])->name('admin-create-category');
+Route::post('/adminpanel/categories/store', [CategoryController::class, 'store'])->name('admin-store-category');
+// update
+Route::get('/adminpanel/categories/{category}/edit', [CategoryController::class, 'edit'])->name('admin-edit-category');
+Route::put('/adminpanel/categories/{category}', [CategoryController::class, 'update'])->name('admin-update-category');
+// delete
+Route::delete('/adminpanel/categories/{category}', [CategoryController::class, 'destroy'])->name('admin-delete-category');
+
+// article side
+// show
+Route::get('/adminpanel/articles', function () {
+    return view('admin/article/edit');
+})->name('adminarticles');
+//create
+Route::get('/adminpanel/articles/create', function () {
+    return view('admin/article/edit');
+})->name('admin-create-article');
+//edit
+Route::get('/adminpanel/articles/edit', function () {
+    return view('admin/article/edit');
+})->name('admin-edit-article');
+// delete
+
 
 //""""order side""""//
 Route::get('/adminpanel/orders', function () {
@@ -94,17 +115,6 @@ Route::get('/adminpanel/orders', function () {
 Route::get('/adminpanel/orders/watch', function () {
     return view('admin/order/watch');
 })->name('admin-watch-order');
-
-//""""product side""""//
-Route::get('/adminpanel/articles', function () {
-    return view('admin/article/index');
-})->name('adminarticles');
-Route::get('/adminpanel/articles/create', function () {
-    return view('admin/article/create');
-})->name('admin-create-article');
-Route::get('/adminpanel/articles/edit', function () {
-    return view('admin/article/edit');
-})->name('admin-edit-article');
 
 
 //""""users side""""//

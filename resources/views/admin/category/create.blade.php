@@ -9,9 +9,9 @@
     </div>
 
     <!-- main card -->
-    <form action="#" method="POST"
+    <form action="{{ route('admin-store-category') }}" method="POST"
         class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col gap-6">
-
+        @csrf
         <!-- header table -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="flex flex-col gap-2">
@@ -28,8 +28,8 @@
                 </label>
                 <select name="status"
                     class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white appearance-none">
-                    <option value="active">فعال</option>
-                    <option value="inactive">غیرفعال</option>
+                    <option value="1">فعال</option>
+                    <option value="0">غیرفعال</option>
                 </select>
             </div>
         </div>
@@ -45,6 +45,11 @@
                 class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2.5 rounded-lg text-sm transition">
                 ذخیره دسته‌بندی
             </button>
+            <div>
+                @error('name')
+                    <p class="text-red-500 text-xl">{{ $message }}</p>
+                @enderror
+            </div>
         </div>
 
     </form>
