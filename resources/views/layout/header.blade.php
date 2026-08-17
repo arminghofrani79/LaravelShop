@@ -64,13 +64,17 @@
                 @auth
                     {{-- username --}}
                     <div>
-                        {{-- بعدا برای ادمین هم آیکون تعریف گردد --}}
-                        {{-- @if (Auth::user()->admin)
-                            
-                        @endif --}}
+
                         <span class="text-sm text-gray-700 font-medium">سلام {{ Auth::user()->name }}!</span>
                     </div>
-
+                    @if (Auth::user()->is_admin)
+                        <a href="{{ route('adminindex') }}"
+                            class="flex justify-center items-center text-white px-1
+                            py-1 rounded-lg hover:bg-gray-700 transition cursor-pointer"
+                            title="پنل مدیریت">
+                            <img src="{{ asset('images/icons/admin.png') }}" alt="ادمین" class="w-4 h-4">
+                        </a>
+                    @endif
                     {{-- profile button --}}
                     <a href="{{ route('user-profile') }}"
                         class="flex justify-center items-center text-white px-1 py-1 rounded-lg hover:bg-gray-700 transition cursor-pointer">
