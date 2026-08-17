@@ -4,111 +4,133 @@
 
     {{-- header --}}
     <div class="w-full flex flex-col items-center gap-1 mb-2">
-        <h1 class="text-2xl md:text-3xl font-bold text-gray-800"> مشاهده کاربر </h1>
+        <h1 class="text-2xl md:text-3xl font-bold text-gray-800">مشاهده کاربر</h1>
+        <div class="flex items-center gap-1 text-xs text-gray-500">
+            <span>پروفایل کاربر</span>
+        </div>
     </div>
 
-    {{-- form --}}
-    <form class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col gap-6">
-
-        @csrf
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="flex flex-col gap-2">
-                <label class="text-sm text-gray-700">
-                    نام <span class="text-red-500">*</span>
-                </label>
-                <input type="text" placeholder="نام کاربر را وارد کنید..."
-                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white placeholder-gray-400">
+    {{-- بخش ۱: اطلاعات اصلی کاربر --}}
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col gap-5">
+        <div class="flex justify-between gap-3 pb-4 border-b border-gray-100">
+            <div class="flex">
+                <div class="flex"
+                    class="w-14 h-14 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 overflow-hidden">
+                    <img src="{{ asset('images/icons/profile.png') }}" class="w-15 h-15" alt="user">
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-gray-800">{{ $user->name }} {{ $user->last_name }}</h2>
+                    <p class="text-sm text-gray-500">{{ $user->email }}</p>
+                </div>
             </div>
 
-            <div class="flex flex-col gap-2">
-                <label class="text-sm text-gray-700">
-                    نام خانوادگی <span class="text-red-500">*</span>
-                </label>
-                <input type="text" placeholder="نام خانوادگی کاربر را وارد کنید..."
-                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white placeholder-gray-400">
-            </div>
-        </div>
+            <div class="flex flex-row text-center justify-center">
+                <a class="text-gray-400 rext-sm" href="{{ route('admin-edit-user', ['user' => $user->id]) }}">ویرایش
+                    کاربر
+                </a>
+                <img class="h-4 w-4" src="{{ asset('images/icons/edit.png') }}" alt="">
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="flex flex-col gap-2">
-                <label class="text-sm text-gray-700">
-                    ایمیل <span class="text-red-500">*</span>
-                </label>
-                <input type="email" placeholder="example@email.com"
-                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white placeholder-gray-400">
-            </div>
-
-            <div class="flex flex-col gap-2">
-                <label class="text-sm text-gray-700">
-                    شماره موبایل <span class="text-red-500">*</span>
-                </label>
-                <input type="text" placeholder="مثال: 09123456789"
-                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white placeholder-gray-400">
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="flex flex-col gap-2">
-                <label class="text-sm text-gray-700">
-                    نقش کاربری <span class="text-red-500">*</span>
-                </label>
-                <select
-                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white appearance-none cursor-pointer">
-                    <option value="user">کاربر</option>
-                    <option value="author">نویسنده</option>
-                    <option value="admin">مدیر</option>
-                </select>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div>
+                <span class="text-xs text-gray-500 block">ایمیل</span>
+                <span class="text-sm font-medium text-gray-800">{{ $user->email }}</span>
+            </div>
+            <div>
+                <div>
+                    <span class="text-xs text-gray-500 block">تاریخ عضویت</span>
+                    <span
+                        class="text-sm text-gray-800">{{ \Morilog\Jalali\Jalalian::fromDateTime($user->created_at)->format('Y/m/d') }}</span>
+                </div>
+            </div>
+            <div>
+                <span class="text-xs text-gray-500 block">وضعیت</span>
+                <span
+                    class="inline-block px-2 py-1 rounded text-xs font-medium {{ $user->status == 'active' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700' }}">
+                    {{ $user->status == 'active' ? 'فعال' : 'غیرفعال' }}
+                </span>
             </div>
 
-            <div class="flex flex-col gap-2">
-                <label class="text-sm text-gray-700">
-                    وضعیت <span class="text-red-500">*</span>
-                </label>
-                <select
-                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white appearance-none cursor-pointer">
-                    <option value="active">فعال</option>
-                    <option value="inactive">غیرفعال</option>
-                </select>
+        </div>
+    </div>
+
+    {{-- بخش ۲: آدرس‌های کاربر --}}
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+        <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+            <img class="w-4 h-4" src="{{ asset('images/icons/address.png') }}" alt="">
+            آدرس‌ها
+        </h3>
+
+        @forelse($user->addresses as $address)
+            <div
+                class="flex flex-col sm:flex-row justify-between items-start border-b border-gray-100 py-4 last:border-0">
+                <div class="space-y-1">
+                    <div class="flex items-center gap-2">
+                        <span class="font-medium text-gray-800">{{ $address->title ?? 'آدرس' }}</span>
+                        @if ($address->is_default)
+                            <span
+                                class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full">پیش‌فرض</span>
+                        @endif
+                    </div>
+                    <p class="text-sm text-gray-600">{{ $address->address }}</p>
+                    <div class="text-xs text-gray-500">
+                        {{ $address->province }}، {{ $address->city }} | کد پستی: {{ $address->postal_code }}
+                    </div>
+                    <div class="text-xs text-gray-500">
+                        گیرنده: {{ $address->full_name }} - {{ $address->phone }}
+                    </div>
+                </div>
             </div>
-        </div>
+        @empty
+            <p class="text-sm text-gray-400 text-center py-4">هیچ آدرسی برای این کاربر ثبت نشده است.</p>
+        @endforelse
+    </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="flex flex-col gap-2">
-                <label class="text-sm text-gray-700">
-                    رمز عبور <span class="text-red-500">*</span>
-                </label>
-                <input type="password" placeholder="رمز عبور را وارد کنید..."
-                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white placeholder-gray-400">
+    {{-- بخش ۳: سفارش‌های کاربر --}}
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+        <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+            <img class="w-4 h-4" src="{{ asset('images/icons/order.png') }}" alt="">
+
+            سفارش‌ها
+        </h3>
+
+        @forelse($user->orders as $order)
+            <div
+                class="flex flex-col sm:flex-row justify-between items-center border-b border-gray-100 py-4 last:border-0">
+                <div class="w-full sm:w-auto space-y-1">
+                    <div class="flex items-center gap-2">
+                        <span class="font-medium text-gray-800">#{{ $order->order_number }}</span>
+                        <span
+                            class="text-xs text-gray-400">{{ \Morilog\Jalali\Jalalian::fromDateTime($order->created_at)->format('Y/m/d') }}</span>
+                    </div>
+                    <div class="text-sm text-gray-600">
+                        مبلغ: {{ number_format($order->final_price) }} تومان
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 mt-2 sm:mt-0">
+                    <span
+                        class="px-2 py-1 rounded text-xs font-medium {{ $order->status == 'completed' ? 'bg-green-100 text-green-700' : ($order->status == 'pending' ? 'bg-orange-100 text-orange-700' : ($order->status == 'canceled' ? 'bg-red-100 text-red-700' : 'bg-gray-100 text-gray-600')) }}">
+                        {{ $order->status == 'completed' ? 'تکمیل شده' : ($order->status == 'pending' ? 'در انتظار' : ($order->status == 'canceled' ? 'لغو شده' : $order->status)) }}
+                    </span>
+                    <a href="{{ route('admin-watch-order', ['order' => $order->id]) }}"
+                        class="text-xs text-blue-600 hover:underline">جزئیات</a>
+                </div>
             </div>
+        @empty
+            <p class="text-sm text-gray-400 text-center py-4">این کاربر هنوز سفارشی ثبت نکرده است.</p>
+        @endforelse
+    </div>
 
-            <div class="flex flex-col gap-2">
-                <label class="text-sm text-gray-700">
-                    تکرار رمز عبور <span class="text-red-500">*</span>
-                </label>
-                <input type="password" placeholder="رمز عبور را مجدداً وارد کنید..."
-                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white placeholder-gray-400">
-            </div>
-        </div>
+    {{-- دکمه بازگشت --}}
+    <div class="flex justify-end">
+        <a href="{{ route('adminusers') }}"
+            class="bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 px-6 py-2.5 rounded-lg text-sm transition flex items-center justify-center cursor-pointer">
+            بازگشت
+        </a>
+    </div>
 
-        <div class="flex flex-col gap-2">
-            <label class="text-sm text-gray-700">تصویر پروفایل</label>
-            <input type="file"
-                class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer border border-gray-200 rounded-lg bg-white">
-            <p class="text-[10px] text-gray-400 mt-0.5">فرمت‌های مجاز: JPG, PNG, WEBP | حداکثر حجم: 2MB</p>
-        </div>
-
-        <div class="flex gap-3 pt-2 border-t border-gray-100">
-            <a href="{{ url()->previous() }}"
-                class="bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 px-6 py-2.5 rounded-lg text-sm transition flex items-center justify-center cursor-pointer">
-                انصراف
-            </a>
-            <button type="submit"
-                class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2.5 rounded-lg text-sm transition">
-                افزودن کاربر
-            </button>
-        </div>
-
-    </form>
 </div>
 
 </main>

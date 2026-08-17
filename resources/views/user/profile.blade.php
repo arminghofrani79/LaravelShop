@@ -16,18 +16,13 @@
                     class="font-medium text-gray-800 text-sm bg-gray-50 p-2 rounded outline-0">
             </div>
             <div class="flex flex-col gap-2">
-                <label class="text-sm text-gray-500">موبایل</label>
-                <input readonly type="text" placeholder="{{ Auth::user()->mobile }}"
-                    class="font-medium text-gray-800 text-sm bg-gray-50 p-2 rounded outline-0">
-            </div>
-            <div class="flex flex-col gap-2">
                 <label class="text-sm text-gray-500">ایمیل</label>
                 <input readonly type="text" placeholder="{{ Auth::user()->email }}"
                     class="font-medium text-gray-800 text-sm bg-gray-50 p-2 rounded outline-0">
             </div>
         </div>
         <div class="mt-6">
-            <a href="{{ route('user-edit-profile') }}"
+            <a href="{{ route('user-edit-profile', ['user' => Auth::user()->id]) }}"
                 class="bg-gray-600 hover:bg-gray-700 w-1/4 text-white px-6 py-2.5 rounded-lg text-sm flex items-center gap-2 transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
@@ -44,7 +39,7 @@
         <div class="bg-white rounded-xl shadow-sm p-4 flex items-center justify-between">
             <div class="flex flex-col">
                 <span class="text-xs text-gray-500">تعداد سفارش‌ها</span>
-                <span class="text-lg font-bold text-gray-800 mt-1">12</span>
+                <span class="text-lg font-bold text-gray-800 mt-1">{{ $allOrder }}</span>
             </div>
             <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
@@ -57,7 +52,7 @@
         <div class="bg-white rounded-xl shadow-sm p-4 flex items-center justify-between">
             <div class="flex flex-col">
                 <span class="text-xs text-gray-500">سفارش‌های در انتظار</span>
-                <span class="text-lg font-bold text-gray-800 mt-1">2</span>
+                <span class="text-lg font-bold text-gray-800 mt-1">{{ $pendingOrder }}</span>
             </div>
             <div class="w-10 h-10 bg-orange-100 text-orange-500 rounded-full flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
@@ -67,10 +62,10 @@
                 </svg>
             </div>
         </div>
-        <div class="bg-white rounded-xl shadow-sm p-4 flex items-center justify-between">
+        <div class="bg-red-200 rounded-xl shadow-sm p-4 flex items-center justify-between">
             <div class="flex flex-col">
-                <span class="text-xs text-gray-500">علاقه‌مندی‌ها</span>
-                <span class="text-lg font-bold text-gray-800 mt-1">8</span>
+                <span class="text-xs text-gray-500 ">علاقه‌مندی‌ها</span>
+                <span class="text-lg font-bold text-gray-800 mt-1">بزودی...</span>
             </div>
             <div class="w-10 h-10 bg-red-100 text-red-500 rounded-full flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
@@ -83,7 +78,7 @@
         <div class="bg-white rounded-xl shadow-sm p-4 flex items-center justify-between">
             <div class="flex flex-col">
                 <span class="text-xs text-gray-500">آدرس‌های ذخیره شده</span>
-                <span class="text-lg font-bold text-gray-800 mt-1">3</span>
+                <span class="text-lg font-bold text-gray-800 mt-1">{{ $addresses }}</span>
             </div>
             <div class="w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
@@ -116,42 +111,27 @@
                     </svg>
                 </a>
             </div>
+            @forelse ($lastOrders as $order)
+                <div class="flex flex-col gap-3">
+                    <div class="flex justify-between items-center border-b border-gray-50 pb-2 text-sm">
+                        <div class="flex flex-col gap-0.5">
+                            <span class="text-gray-800 font-medium">{{ $order->order_number }}</span>
+                            <span class="text-xs text-gray-400">{{ $order->created_at->format('d/m/Y') }}</span>
+                        </div>
+                        <div class="flex flex-col items-end gap-0.5">
+                            <span class="text-gray-800 font-medium">{{ number_format($order->final_price) }}
+                                تومان</span>
+                            <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
+                                {{ $order->payment_status }}
+                            </span>
+                        </div>
+                    </div>
 
-            <div class="flex flex-col gap-3">
-                <div class="flex justify-between items-center border-b border-gray-50 pb-2 text-sm">
-                    <div class="flex flex-col gap-0.5">
-                        <span class="text-gray-800 font-medium">#LS-10045</span>
-                        <span class="text-xs text-gray-400">۱۴۰۳/۰۲/۲۵</span>
-                    </div>
-                    <div class="flex flex-col items-end gap-0.5">
-                        <span class="text-gray-800 font-medium">۱,۲۸۰,۰۰۰ تومان</span>
-                        <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">تحویل
-                            شده</span>
-                    </div>
                 </div>
-                <div class="flex justify-between items-center border-b border-gray-50 pb-2 text-sm">
-                    <div class="flex flex-col gap-0.5">
-                        <span class="text-gray-800 font-medium">#LS-10032</span>
-                        <span class="text-xs text-gray-400">۱۴۰۳/۰۲/۱۵</span>
-                    </div>
-                    <div class="flex flex-col items-end gap-0.5">
-                        <span class="text-gray-800 font-medium">۲,۵۶۰,۰۰۰ تومان</span>
-                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">پرداخت
-                            شده</span>
-                    </div>
-                </div>
-                <div class="flex justify-between items-center text-sm">
-                    <div class="flex flex-col gap-0.5">
-                        <span class="text-gray-800 font-medium">#LS-10021</span>
-                        <span class="text-xs text-gray-400">۱۴۰۳/۰۲/۱۰</span>
-                    </div>
-                    <div class="flex flex-col items-end gap-0.5">
-                        <span class="text-gray-800 font-medium">۹۸۰,۰۰۰ تومان</span>
-                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full">در انتظار
-                            پرداخت</span>
-                    </div>
-                </div>
-            </div>
+            @empty
+                <span class="text-gray-300 flex justify-center text-center">شما لیست سفارشی ندارید</span>
+            @endforelse
+
         </div>
 
         <!-- last address -->
@@ -161,13 +141,23 @@
                 <h4 class="font-bold text-gray-800">آدرس پیش‌فرض</h4>
             </div>
 
-            <div class="text-sm text-gray-600 space-y-2">
-                <p>تهران، خیابان ولیعصر، بالاتر از میدان ونک، خیابان شهید برادران مظفر، پلاک ۳۴، واحد ۵</p>
-                <div class="pt-2 text-xs text-gray-500 space-y-1">
-                    <p><span class="font-medium">کد پستی:</span> ۱۹۶۸۳۴۵۶۷</p>
-                    <p><span class="font-medium">تلفن:</span> ۰۹۱۲ ۳۴۵ ۶۷۸۹</p>
+            @if ($defaultAddress)
+                <div class="text-sm text-gray-600 space-y-2">
+                    <p>{{ $defaultAddress->address }}</p>
+                    <div class="pt-2 text-xs text-gray-500 space-y-1">
+                        <p><span class="font-medium">کد پستی:</span> {{ $defaultAddress->postal_code ?? '-' }}</p>
+                        <p><span class="font-medium">تلفن:</span> {{ $defaultAddress->phone ?? '-' }}</p>
+                    </div>
                 </div>
-            </div>
+            @else
+                <div class="text-sm text-gray-400 text-center py-4 border border-dashed border-gray-200 rounded-lg">
+                    <p>هیچ آدرس پیش‌فرضی ثبت نشده است.</p>
+                    <a href="{{ route('user-address-create') }}"
+                        class="text-blue-600 text-xs mt-2 inline-block hover:underline">
+                        افزودن آدرس جدید
+                    </a>
+                </div>
+            @endisset
 
             <div class="mt-4 pt-4 border-t border-gray-100">
                 <a href="{{ route('user-address') }}"
@@ -176,9 +166,9 @@
                     ویرایش آدرس
                 </a>
             </div>
-        </div>
-
     </div>
+
+</div>
 
 </div>
 

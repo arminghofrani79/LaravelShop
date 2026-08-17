@@ -4,11 +4,16 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController as ControllersProductController;
 use App\Http\Controllers\Profile\AddressController;
+use App\Http\Controllers\Profile\OrderController as ProfileOrderController;
+use App\Http\Controllers\Profile\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])
@@ -19,10 +24,29 @@ Route::get('/products', [ControllersProductController::class, 'index'])->name('p
 Route::get('/products/{product}', [ControllersProductController::class, 'show'])->name('product-show');
 
 ////////////cart ////////////
-Route::get('/cart', function () {
-    return view('cart');
-})->name('cart');
+//show
+Route::get('/cart', [CartController::class, 'index'])
+    ->name('cart');
+//create
+Route::post('/cart', [CartController::class, 'store'])
+    ->name('cart.store');
+//update
+Route::put('/cart/{product}', [CartController::class, 'update'])
+    ->name('cart.update');
+//delete
+Route::delete('/cart/{product}', [CartController::class, 'destroy'])
+    ->name('cart.destroy');
 
+////////////checkout ////////////
+
+Route::middleware('auth')->group(function () {
+    //show
+    Route::get('/checkout', [CheckoutController::class, 'index'])
+        ->name('checkout');
+    //store
+    Route::post('/checkout', [CheckoutController::class, 'store'])
+        ->name('checkout.store');
+});
 //////////// article ////////////
 Route::get('/articles', [ArticlesController::class, 'index'])->name('articles');
 Route::get('/articles/{article}', [ArticlesController::class, 'show'])->name('article-show');
@@ -33,23 +57,30 @@ Route::get('/contact', function () {
 })->name('contact');
 
 //////////// user panel ////////////
-//""""main side""""//
-Route::get('/profile', function () {
-    return view('user/profile');
-})->middleware('auth')
-    ->name('user-profile');
+//""""profile""""//
+Route::middleware('auth')->group(function () {
 
-Route::get('/profile/edit', function () {
-    return view('user/profile-edit');
-})->name('user-edit-profile');
+    Route::get('/profile', [ProfileController::class, 'index'])
+        ->name('user-profile');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])
+        ->name('user-edit-profile');
+    Route::put('/profile', [ProfileController::class, 'update'])
+        ->name('user-profile-update');
+
+    Route::get('/profile/pass/edit', [ProfileController::class, 'editPassword'])
+        ->name('user-edit-password-profile');
+    Route::put('/profile/pass', [ProfileController::class, 'updatePassword'])
+        ->name('user-profile-password-update');
+});
 
 //""""order side""""//
-Route::get('/profile/order', function () {
-    return view('user/order/order');
-})->name('user-order');
-Route::get('/profile/order/1', function () {
-    return view('user/order-watch');
-})->name('user-watch-order');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile/orders', [ProfileOrderController::class, 'index'])
+        ->name('user-order');
+    Route::get('/profile/orders/{order}', [ProfileOrderController::class, 'show'])
+        ->name('user-watch-order');
+});
+
 
 //""""address side""""//
 // show
@@ -63,7 +94,7 @@ Route::put('/profile/address/{address}', [AddressController::class, 'update'])->
 //delete
 Route::delete('/profile/address/{address}', [AddressController::class, 'destroy'])->name('user-address-destroy');
 
-
+////////////////////////////////////
 
 //////////// admin panel ////////////
 //""""main side""""//
@@ -108,29 +139,31 @@ Route::put('/adminpanel/articles/{article}', [ArticleController::class, 'update'
 // // // delete
 Route::delete('/adminpanel/articles/{article}', [ArticleController::class, 'destroy'])->name('admin-delete-article');
 
-
-
 //""""order side""""//
 // show
 Route::get('/adminpanel/orders', [OrderController::class, 'index'])
     ->name('adminorders');
-
+// watch detail
 Route::get('/adminpanel/orders/{order}', [OrderController::class, 'show'])
     ->name('admin-watch-order');
-
+// update status
+Route::put('/adminpanel/orders/{order}/status', [OrderController::class, 'updateStatus'])
+    ->name('admin-order-status');
 
 //""""users side""""//
-Route::get('/adminpanel/users', function () {
-    return view('admin/user/index');
-})->name('adminusers');
-Route::get('/adminpanel/users/create', function () {
-    return view('admin/user/create');
-})->name('admin-create-user');
-Route::get('/adminpanel/users/watch', function () {
-    return view('admin/user/watch');
-})->name('admin-watch-user');
+//index
+Route::get('/adminpanel/users', [UserController::class, 'index'])->name('adminusers');
+//create
+Route::get('/adminpanel/users/create', [UserController::class, 'create'])->name('admin-create-user');
+Route::post('/adminpanel/users/create', [UserController::class, 'store'])->name('admin-store-user');
 
-
+//show
+Route::get('/adminpanel/users/{user}', [UserController::class, 'show'])->name('admin-watch-user');
+//update
+Route::get('/adminpanel/users/{user}/edit', [UserController::class, 'edit'])->name('admin-edit-user');
+Route::put('/adminpanel/users/{user}', [UserController::class, 'update'])->name('admin-update-user');
+//delete
+Route::delete('/adminpanel/users/{user}/delete', [UserController::class, 'destroy'])->name('admin-destroy-user');
 
 //""""AUTH""""//
 Route::middleware('guest')->group(function () {

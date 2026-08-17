@@ -14,7 +14,7 @@
         <div class="bg-white rounded-xl shadow-sm p-5 flex items-center justify-between">
             <div class="flex flex-col">
                 <span class="block text-xs text-gray-500 mb-1">کل سفارش‌ها</span>
-                <span class="block text-xl font-bold text-gray-800">487</span>
+                <span class="block text-xl font-bold text-gray-800">{{ $allOrdersCount }}</span>
             </div>
             <div class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center text-blue-600">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
@@ -29,7 +29,7 @@
         <div class="bg-white rounded-xl shadow-sm p-5 flex items-center justify-between">
             <div class="flex flex-col">
                 <span class="block text-xs text-gray-500 mb-1">سفارش‌های در انتظار</span>
-                <span class="block text-xl font-bold text-gray-800">18</span>
+                <span class="block text-xl font-bold text-gray-800">{{ $pendingOrdersCount }}</span>
             </div>
             <div class="w-10 h-10 bg-yellow-50 rounded-full flex items-center justify-center text-yellow-600">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
@@ -44,7 +44,7 @@
         <div class="bg-white rounded-xl shadow-sm p-5 flex items-center justify-between">
             <div class="flex flex-col">
                 <span class="block text-xs text-gray-500 mb-1">سفارش‌های تکمیل شده</span>
-                <span class="block text-xl font-bold text-gray-800">236</span>
+                <span class="block text-xl font-bold text-gray-800">{{ $completedOrdersCount }}</span>
             </div>
             <div class="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center text-green-600">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
@@ -59,7 +59,7 @@
         <div class="bg-white rounded-xl shadow-sm p-5 flex items-center justify-between">
             <div class="flex flex-col">
                 <span class="block text-xs text-gray-500 mb-1">سفارش‌های برگشتی</span>
-                <span class="block text-xl font-bold text-gray-800">12</span>
+                <span class="block text-xl font-bold text-gray-800">{{ $cancledOrdersCount }}</span>
             </div>
             <div class="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center text-red-500">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
@@ -118,173 +118,73 @@
                     <th class="text-center pb-4 font-medium">عملیات</th>
                 </tr>
             </thead>
+
             <tbody class="text-gray-700">
 
-                <!-- ردیف 1 -->
-                <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition">
-                    <td class="py-4 text-center font-medium text-blue-600">#10087</td>
-                    <td class="py-4 text-center">
-                        <div class="flex flex-col items-center text-xs">
-                            <span class="font-medium">علی محمدی</span>
-                            <span class="text-gray-400">ali@example.com</span>
-                        </div>
-                    </td>
-                    <td class="py-4 text-center">
-                        <div class="flex flex-col items-center text-xs">
-                            <span>۱۴۰۳/۰۲/۲۳</span>
-                            <span class="text-gray-400">۱۰:۳۰</span>
-                        </div>
-                    </td>
-                    <td class="py-4 text-center font-medium">۲,۴۸۰,۰۰۰ تومان</td>
-                    <td class="py-4 text-center">
-                        <span class="bg-orange-100 text-orange-700 px-2 py-1 rounded text-[10px] font-medium">در
-                            انتظار</span>
-                    </td>
-                    <td class="py-4 text-center">
-                        <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-[10px] font-medium">پرداخت
-                            شده</span>
-                    </td>
-                    <td class="py-4 text-center flex justify-center gap-2">
-                        <a href="{{ route('admin-watch-order') }}"
-                            class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-500 hover:bg-gray-50 rounded-lg transition">
-                            <img class="h-4 w-4" src="{{ asset('images/icons/eye.png') }}" alt="">
-                        </a>
-                    </td>
-                </tr>
+                @foreach ($orders as $order)
+                    <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition">
 
-                <!-- ردیف 2 -->
-                <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition">
-                    <td class="py-4 text-center font-medium text-blue-600">#10086</td>
-                    <td class="py-4 text-center">
-                        <div class="flex flex-col items-center text-xs">
-                            <span class="font-medium">زهرا کریمی</span>
-                            <span class="text-gray-400">zahra@example.com</span>
-                        </div>
-                    </td>
-                    <td class="py-4 text-center">
-                        <div class="flex flex-col items-center text-xs">
-                            <span>۱۴۰۳/۰۲/۲۳</span>
-                            <span class="text-gray-400">۰۹:۱۵</span>
-                        </div>
-                    </td>
-                    <td class="py-4 text-center font-medium">۱,۳۲۰,۰۰۰ تومان</td>
-                    <td class="py-4 text-center">
-                        <span class="bg-orange-100 text-orange-700 px-2 py-1 rounded text-[10px] font-medium">در حال
-                            پردازش</span>
-                    </td>
-                    <td class="py-4 text-center">
-                        <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-[10px] font-medium">پرداخت
-                            شده</span>
-                    </td>
-                    <td class="py-4 text-center flex justify-center gap-2">
-                        <a href="{{ route('admin-watch-order') }}"
-                            class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-500 hover:bg-gray-50 rounded-lg transition">
-                            <img class="h-4 w-4" src="{{ asset('images/icons/eye.png') }}" alt="">
-                        </a>
-                    </td>
-                </tr>
+                        <td class="py-4 text-center font-medium text-blue-600">
+                            #{{ $order->order_number }}
+                        </td>
 
-                <!-- ردیف 3 -->
-                <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition">
-                    <td class="py-4 text-center font-medium text-blue-600">#10085</td>
-                    <td class="py-4 text-center">
-                        <div class="flex flex-col items-center text-xs">
-                            <span class="font-medium">محمد رضایی</span>
-                            <span class="text-gray-400">mrezaei@example.com</span>
-                        </div>
-                    </td>
-                    <td class="py-4 text-center">
-                        <div class="flex flex-col items-center text-xs">
-                            <span>۱۴۰۳/۰۲/۲۲</span>
-                            <span class="text-gray-400">۱۵:۴۵</span>
-                        </div>
-                    </td>
-                    <td class="py-4 text-center font-medium">۳,۶۹۰,۰۰۰ تومان</td>
-                    <td class="py-4 text-center">
-                        <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-[10px] font-medium">ارسال
-                            شده</span>
-                    </td>
-                    <td class="py-4 text-center">
-                        <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-[10px] font-medium">پرداخت
-                            شده</span>
-                    </td>
-                    <td class="py-4 text-center flex justify-center gap-2">
-                        <a href="{{ route('admin-watch-order') }}"
-                            class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-500 hover:bg-gray-50 rounded-lg transition">
-                            <img class="h-4 w-4" src="{{ asset('images/icons/eye.png') }}" alt="">
-                        </a>
-                    </td>
-                </tr>
+                        <td class="py-4 text-center">
+                            <div class="flex flex-col items-center text-xs">
+                                <span class="font-medium">
+                                    {{ $order->user->name }}
+                                </span>
 
-                <!-- ردیف 4 -->
-                <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition">
-                    <td class="py-4 text-center font-medium text-blue-600">#10084</td>
-                    <td class="py-4 text-center">
-                        <div class="flex flex-col items-center text-xs">
-                            <span class="font-medium">سارا قربانی</span>
-                            <span class="text-gray-400">sara@example.com</span>
-                        </div>
-                    </td>
-                    <td class="py-4 text-center">
-                        <div class="flex flex-col items-center text-xs">
-                            <span>۱۴۰۳/۰۲/۲۱</span>
-                            <span class="text-gray-400">۱۱:۳۰</span>
-                        </div>
-                    </td>
-                    <td class="py-4 text-center font-medium">۱,۸۵۰,۰۰۰ تومان</td>
-                    <td class="py-4 text-center">
-                        <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-[10px] font-medium">تکمیل
-                            شده</span>
-                    </td>
-                    <td class="py-4 text-center">
-                        <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-[10px] font-medium">پرداخت
-                            شده</span>
-                    </td>
-                    <td class="py-4 text-center flex justify-center gap-2">
-                        <a href="{{ route('admin-watch-order') }}"
-                            class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-500 hover:bg-gray-50 rounded-lg transition">
-                            <img class="h-4 w-4" src="{{ asset('images/icons/eye.png') }}" alt="">
-                        </a>
-                    </td>
-                </tr>
+                                <span class="text-gray-400">
+                                    {{ $order->user->email }}
+                                </span>
+                            </div>
+                        </td>
 
-                <!-- ردیف 5 -->
-                <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition">
-                    <td class="py-4 text-center font-medium text-blue-600">#10082</td>
-                    <td class="py-4 text-center">
-                        <div class="flex flex-col items-center text-xs">
-                            <span class="font-medium">نگین احمدی</span>
-                            <span class="text-gray-400">n.ahmadi@example.com</span>
-                        </div>
-                    </td>
-                    <td class="py-4 text-center">
-                        <div class="flex flex-col items-center text-xs">
-                            <span>۱۴۰۳/۰۲/۱۹</span>
-                            <span class="text-gray-400">۰۸:۴۰</span>
-                        </div>
-                    </td>
-                    <td class="py-4 text-center font-medium">۹۸۰,۰۰۰ تومان</td>
-                    <td class="py-4 text-center">
-                        <span class="bg-red-100 text-red-700 px-2 py-1 rounded text-[10px] font-medium">لغو شده</span>
-                    </td>
-                    <td class="py-4 text-center">
-                        <span class="bg-red-100 text-red-700 px-2 py-1 rounded text-[10px] font-medium">پرداخت
-                            نشده</span>
-                    </td>
-                    <td class="py-4 text-center flex justify-center gap-2">
-                        <a href="{{ route('admin-watch-order') }}"
-                            class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-500 hover:bg-gray-50 rounded-lg transition">
-                            <img class="h-4 w-4" src="{{ asset('images/icons/eye.png') }}" alt="">
-                        </a>
-                    </td>
-                </tr>
+                        <td class="py-4 text-center">
+                            <div class="flex flex-col items-center text-xs">
+                                <span>
+                                    {{ $order->created_at->format('Y/m/d') }}
+                                </span>
+
+                                <span class="text-gray-400">
+                                    {{ $order->created_at->format('H:i') }}
+                                </span>
+                            </div>
+                        </td>
+
+                        <td class="py-4 text-center font-medium">
+                            {{ number_format($order->final_price) }} تومان
+                        </td>
+
+                        <td class="py-4 text-center">
+                            {{ $order->status }}
+                        </td>
+
+                        <td class="py-4 text-center">
+                            {{ $order->payment_status }}
+                        </td>
+
+                        <td class="py-4 text-center">
+                            <div class="flex justify-center">
+                                <a href="{{ route('admin-watch-order', ['order' => $order->id]) }}"
+                                    class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-500 hover:bg-gray-50 rounded-lg transition">
+
+                                    <img class="h-4 w-4" src="{{ asset('images/icons/eye.png') }}" alt="">
+                                </a>
+                            </div>
+                        </td>
+
+                    </tr>
+                @endforeach
 
             </tbody>
         </table>
     </div>
 
     <!-- بخش 4: صفحه‌بندی -->
-
+    <div class="mt-5">
+        {{ $orders->links() }}
+    </div>
 
 </div>
 

@@ -17,33 +17,30 @@
             </div>
 
             <div class="border-t-2 border-gray-200 pt-5">
-                <div class="flex flex-wrap items-center gap-4">
-                    <button
-                        class="flex items-center justify-center gap-2 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2.5 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg w-2/3">
-                        <img class="w-5 h-5 object-contain filter brightness-0 invert"
-                            src="{{ asset('images/icons/buy.png') }}" alt="افزودن به سبد خرید">
-                        افزودن به سبد خرید
-                    </button>
+                <div class="flex flex-wrap items-center gap-3">
+                    <form action="{{ route('cart.store') }}" method="POST" class="flex flex-1 items-center gap-3">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
 
-                    <div class="flex items-center border-2 border-gray-300 rounded-lg overflow-hidden">
-                        <button
-                            class="bg-gray-200 hover:bg-gray-300 px-3 py-1.5 text-lg font-bold transition-colors">-</button>
-                        <input type="number" value="1" min="1"
-                            class="w-12 text-center border-x-2 border-gray-300 py-1.5 text-sm outline-none">
-                        <button
-                            class="bg-gray-200 hover:bg-gray-300 px-3 py-1.5 text-lg font-bold transition-colors">+</button>
-                    </div>
+                        <input type="number" name="quantity" value="1" min="1"
+                            class="w-16 h-10 text-center border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-gray-600 transition">
 
+                        <button type="submit"
+                            class="flex-1 flex items-center justify-center gap-2 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2.5 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer">
+                            <img class="w-5 h-5 object-contain filter brightness-0 invert"
+                                src="{{ asset('images/icons/buy.png') }}" alt="افزودن به سبد خرید">
+                            <span>افزودن به سبد خرید</span>
+                        </button>
+                    </form>
                 </div>
             </div>
-
         </div>
 
 
         <div
             class="w-full md:w-1/2 flex items-center justify-center border-2 border-gray-200 rounded-2xl p-4 bg-gray-50">
-            <img class="w-full h-64 md:h-80 object-contain rounded-xl" src="{{ asset('images/products/watch1.jpeg') }}"
-                alt="ساعت هوشمند شیائومی">
+            <img class="w-full h-64 md:h-80 object-contain rounded-xl"
+                src="{{ asset('storage/images/products/' . $product->image) }}" alt="ساعت هوشمند شیائومی">
         </div>
 
     </div>
