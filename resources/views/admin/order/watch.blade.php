@@ -112,12 +112,13 @@
                                 <option value="cancelled" {{ $order->status === 'cancelled' ? 'selected' : '' }}>لغو
                                     شده</option>
                             </select>
+                            <button type="submit"
+                                class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-2 transition shadow-sm">
+                                بروزرسانی وضعیت
+                            </button>
                         </form>
                     </div>
-                    <button type="submit"
-                        class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-2 transition shadow-sm">
-                        بروزرسانی وضعیت
-                    </button>
+
                 </div>
 
                 <p class="text-[10px] text-gray-400 mt-1">برای تغییر وضعیت سفارش، وضعیت جدید را انتخاب کرده و روی دکمه

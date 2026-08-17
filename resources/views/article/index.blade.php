@@ -37,36 +37,43 @@
 
 
     {{-- paginate 3 articles --}}
-    <main class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full px-4 py-8 gap-2">
-        @foreach ($articles as $articl)
-            {{-- article card --}}
-            <div
-                class="flex flex-col h-full bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-gray-200 cursor-pointer overflow-hidden">
-                <img class="w-full h-40 object-cover" src="{{ asset('/storage/images/articles/' . $articl->image) }}"
-                    alt="a">
-                <div class="flex flex-col justify-between flex-grow p-5 gap-3">
-                    <div class="bg-gray-100 text-gray-600 rounded-full px-3 py-1 w-fit text-lg font-medium mb-2">
-                        {{ $articl->title }}
-                    </div>
-                    <h1 class="font-bold text-l md:text-2xl text-gray-800"></h1>
-                    <p class="text-gray-500 text-sm leading-relaxed">
-                        {{ $articl->describe }}
-                    </p>
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-2">
+    <div class="flex justify-center items-center text-center flex-col">
+        <main class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full px-4 py-8 gap-2">
+            @foreach ($articles as $articl)
+                {{-- article card --}}
+                <div
+                    class="flex flex-col h-full bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-gray-200 cursor-pointer overflow-hidden">
+                    <img class="w-full h-40 object-cover"
+                        src="{{ asset('/storage/images/articles/' . $articl->image) }}" alt="a">
+                    <div class="flex flex-col justify-between flex-grow p-5 gap-3">
+                        <div class="bg-gray-100 text-gray-600 rounded-full px-3 py-1 w-fit text-lg font-medium mb-2">
+                            {{ $articl->title }}
+                        </div>
+                        <h1 class="font-bold text-l md:text-2xl text-gray-800"></h1>
+                        <p class="text-gray-500 text-sm leading-relaxed">
+                            {{ $articl->describe }}
+                        </p>
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-2">
 
-                        <div
-                            class="h-10 hover:text-gray-900 rounded-lg flex items-center justify-center transition-colors px-6">
-                            <a href="{{ route('article-show', ['article' => $articl->id]) }}"
-                                class="text-black text-sm font-medium w-full h-full flex items-center justify-center">
-                                مطالعه مقاله
-                            </a>
+                            <div
+                                class="h-10 hover:text-gray-900 rounded-lg flex items-center justify-center transition-colors px-6">
+                                <a href="{{ route('article-show', ['article' => $articl->id]) }}"
+                                    class="text-black text-sm font-medium w-full h-full flex items-center justify-center">
+                                    مطالعه مقاله
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+            {{-- pagination --}}
 
-    </main>
+        </main>
+        <div class="mt-2 ">
+            {{ $articles->links() }}
+        </div>
+    </div>
+
 </article>
 
 @include('layout.footer')

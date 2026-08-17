@@ -37,7 +37,7 @@ class ProductController extends Controller
             'price' => 'required|numeric',
             'discount' => 'nullable|numeric',
             'stock' => 'required',
-            'description' => 'required|min:10|max:200',
+            'description' => 'required|min:10|max:2000',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'status' => 'required',
             'is_featured' => 'nullable',
