@@ -1,4 +1,4 @@
-@include('profile.layout.side')
+@include('user.layout.side')
 
 <div class="lg:col-span-3 flex flex-col gap-6">
 
@@ -22,28 +22,30 @@
         {{-- order number --}}
         <div class="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center gap-1">
             <span class="block text-xs text-gray-500">شماره سفارش</span>
-            <span class="block text-sm font-bold text-gray-800">LS-10067#</span>
+            <span class="block text-sm font-bold text-gray-800">{{ $order->order_number }}</span>
         </div>
 
         {{-- order date --}}
         <div class="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center gap-1">
             <span class="block text-xs text-gray-500">تاریخ سفارش</span>
             <div class="block text-sm font-bold text-gray-800 flex flex-col gap-0.5 items-center">
-                <span>۱۴۰۳/۰۳/۲۸</span>
-                <span class="text-xs text-gray-400 font-normal">۱۵:۴۵</span>
+                <span>{{ $order->jalali_created_at }}</span>
+                <span class="text-xs text-gray-400 font-normal">{{ $order->created_at->format('Y/m/d') }}</span>
             </div>
         </div>
 
         {{-- order status --}}
         <div class="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center gap-1">
             <span class="block text-xs text-gray-500">وضعیت سفارش</span>
-            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-md text-xs font-medium">تحویل شده</span>
+            <span
+                class="bg-green-100 text-green-700 px-3 py-1 rounded-md text-xs font-medium">{{ $order->status }}</span>
         </div>
 
         {{-- payment status --}}
         <div class="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center gap-1">
             <span class="block text-xs text-gray-500">وضعیت پرداخت</span>
-            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-md text-xs font-medium">پرداخت شده</span>
+            <span
+                class="bg-green-100 text-green-700 px-3 py-1 rounded-md text-xs font-medium">{{ $order->payment_status }}</span>
         </div>
     </div>
 
@@ -62,15 +64,15 @@
             <div class="flex flex-col gap-3 text-sm">
                 <div class="flex justify-between border-b border-gray-50 pb-2">
                     <span class="text-gray-500 text-xs">نام و نام خانوادگی:</span>
-                    <span class="text-gray-800 font-medium">علی محمدی</span>
+                    <span class="text-gray-800 font-medium">{{ $order->address->full_name }}</span>
                 </div>
                 <div class="flex justify-between border-b border-gray-50 pb-2">
                     <span class="text-gray-500 text-xs">شماره تماس:</span>
-                    <span class="text-gray-800">۰۹۱۲ ۱۲۳ ۴۵۶۷</span>
+                    <span class="text-gray-800">{{ $order->address->phone }}</span>
                 </div>
                 <div class="flex justify-between">
                     <span class="text-gray-500 text-xs">ایمیل:</span>
-                    <span class="text-gray-800">ali.mohammadi@example.com</span>
+                    <span class="text-gray-800">{{ $order->user->email }}</span>
                 </div>
             </div>
         </div>
@@ -87,16 +89,17 @@
             <div class="flex flex-col gap-3 text-sm">
                 <div class="flex justify-between border-b border-gray-50 pb-2">
                     <span class="text-gray-500 text-xs">استان، شهر:</span>
-                    <span class="text-gray-800">تهران، تهران</span>
+                    <span class="text-gray-800">{{ $order->address->province }},{{ $order->address->city }}</span>
                 </div>
                 <div class="flex justify-between border-b border-gray-50 pb-2 items-start">
                     <span class="text-gray-500 text-xs mt-1">آدرس:</span>
-                    <span class="text-gray-800 text-right text-xs leading-relaxed">خیابان ولیعصر، خیابان توانیر، پلاک
-                        ۲۴، واحد ۳، طبقه ۴</span>
+                    <span class="text-gray-800 text-right text-xs leading-relaxed">
+                        {{ $order->address->address }}
+                    </span>
                 </div>
                 <div class="flex justify-between">
                     <span class="text-gray-500 text-xs">کد پستی:</span>
-                    <span class="text-gray-800">۱۵۹۸۷۴۳۶۱</span>
+                    <span class="text-gray-800">{{ $order->address->postal_code }}</span>
                 </div>
             </div>
         </div>
@@ -114,6 +117,7 @@
         <table class="w-full text-sm min-w-[400px]">
             <thead>
                 <tr class="text-gray-500 border-b border-gray-100">
+                    <th class="text-right pb-3 font-medium pl-2">تصویر</th>
                     <th class="text-right pb-3 font-medium pl-2">محصول</th>
                     <th class="text-center pb-3 font-medium">تعداد</th>
                     <th class="text-center pb-3 font-medium">قیمت واحد</th>
@@ -121,16 +125,32 @@
                 </tr>
             </thead>
             <tbody class="text-gray-700">
-                {{-- row1 --}}
-                <tr class="border-b border-gray-50">
-                    <td class="py-4 flex flex-col items-start gap-1 pl-2">
-                        <span class="font-medium text-gray-800 text-sm">قهوه ساز دلونگی مدل EC685</span>
-                        <span class="text-xs text-gray-400">SKU: LS-P1001</span>
-                    </td>
-                    <td class="py-4 text-center">1</td>
-                    <td class="py-4 text-center">۸,۴۵۰,۰۰۰ تومان</td>
-                    <td class="py-4 text-center font-medium text-gray-800">۸,۴۵۰,۰۰۰ تومان</td>
-                </tr>
+                {{-- row product --}}
+                @forelse ($order->orderItems as $item)
+                    <tr class="border-b border-gray-50">
+                        <td><img src="{{ asset('storage/images/products/' . $item->product->image) }}"
+                                class="w-12 h-12 object-contain" alt="{{ $item->product->name }}"></td>
+                        <td class="py-4 flex flex-col items-start gap-1 pl-2">
+                            <span class="font-medium text-gray-800 text-sm">{{ $item->product->name }}</span>
+                        </td>
+                        <td class="py-4 text-center"> {{ $item->quantity }}</td>
+                        <td class="py-4 text-center">{{ number_format($item->price) }} </td>
+                        <td class="py-4 text-center font-medium text-gray-800">{{ number_format($item->total) }} تومان
+                        </td>
+                    </tr>
+                @empty
+                    <div class="flex flex-col">
+                        <div colspan="6" class="py-10 text-center text-gray-400">
+                            هنوز سفارشی ثبت نکرده‌اید.
+                        </div>
+                        <div class="flex justify-center">
+                            <a href="{{ route('products') }}"
+                                class="bg-gray-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-700 transition">
+                                بازگشت به فروشگاه
+                            </a>
+                        </div>
+                    </div>
+                @endforelse
 
             </tbody>
         </table>
@@ -149,20 +169,20 @@
 
             <div class="flex flex-col gap-3">
                 <div class="flex justify-between text-sm text-gray-600">
-                    <span>مجموع قیمت کالاها</span>
-                    <span>۱۱,۱۱۰,۰۰۰ تومان</span>
+                    <span>تعداد کالاها</span>
+                    <span>{{ $order->orderItems->sum('quantity') }} عدد</span>
                 </div>
                 <div class="flex justify-between text-sm text-green-600">
                     <span>تخفیف</span>
-                    <span>- ۵۵۵,۰۰۰ تومان</span>
+                    <span>{{ number_format($order->discount_amount) }} تومان</span>
                 </div>
                 <div class="flex justify-between text-sm text-gray-600">
                     <span>هزینه ارسال</span>
-                    <span>۲۰,۰۰۰ تومان</span>
+                    <span>{{ number_format($order->shipping_cost) }} تومان</span>
                 </div>
                 <div class="flex justify-between text-lg font-bold text-gray-800 pt-4 mt-2 border-t border-gray-100">
                     <span>مبلغ نهایی</span>
-                    <span>۱۰,۵۷۵,۰۰۰ تومان</span>
+                    <span>{{ number_format($order->final_price) }} تومان</span>
                 </div>
             </div>
         </div>
@@ -172,28 +192,19 @@
             <div class="flex items-center gap-2 pb-4 mb-2 border-b border-gray-100">
                 <h3 class="font-bold text-gray-800 text-sm flex items-center gap-2">
                     <img class="w-4 h-4" src="{{ asset('images/icons/send.png') }}" alt="">
-                    اطلاعات ارسال
+                    کد رهگیری پستی
                 </h3>
             </div>
-
-            <div class="flex flex-col gap-3 text-sm">
-                <div class="flex justify-between items-center">
-                    <span class="text-gray-500 text-xs">وضعیت ارسال:</span>
-                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-md text-xs font-medium">تحویل شده</span>
+            @if ($order->tracking_code)
+                <div>
+                    کد رهگیری:
+                    {{ $order->tracking_code }}
                 </div>
-                <div class="flex justify-between">
-                    <span class="text-gray-500 text-xs">کد رهگیری:</span>
-                    <span class="text-gray-800 font-medium">IR1234567890</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="text-gray-500 text-xs">روش ارسال:</span>
-                    <span class="text-gray-800">پست پیشتاز</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="text-gray-500 text-xs">تاریخ تحویل:</span>
-                    <span class="text-gray-800">۱۴۰۳/۰۳/۳۰ - ۱۲:۱۰</span>
-                </div>
-            </div>
+            @else
+                <p class="text-gray-300">
+                    سفارش خود را کامل کنید و بمحض ارسال کدمرسوله در اینجا نمایش داده خواهد شد...
+                </p>
+            @endif
         </div>
 
     </div>

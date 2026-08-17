@@ -4,20 +4,21 @@
 
     {{-- header --}}
     <div class="w-full flex flex-col items-center gap-1 mb-2">
-        <h1 class="text-2xl md:text-3xl font-bold text-gray-800">افزودن کاربر جدید</h1>
+        <h1 class="text-2xl md:text-3xl font-bold text-gray-800">ویرایش کاربر</h1>
     </div>
 
     {{-- form --}}
-    <form method="POST" action="{{ route('admin-store-user') }}"
+    <form method="POST" action="{{ route('admin-update-user', ['user' => $user->id]) }}"
         class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col gap-6">
-
+        @method('PUT')
         @csrf
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="flex flex-col gap-2">
                 <label class="text-sm text-gray-700">
                     نام <span class="text-red-500">*</span>
                 </label>
-                <input value="{{ old('name') }}" name="name" type="text" placeholder="نام کاربر را وارد کنید..."
+                <input value="{{ old('name', $user->name) }}" name="name" type="text"
+                    placeholder="نام کاربر را وارد کنید..."
                     class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white placeholder-gray-400">
                 @error('name')
                     <p class="text-sm text-red-500">{{ $message }}</p>
@@ -28,7 +29,8 @@
                 <label class="text-sm text-gray-700">
                     ایمیل <span class="text-red-500">*</span>
                 </label>
-                <input value="{{ old('email') }}" name="email" type="email" placeholder="example@email.com"
+                <input value="{{ old('email', $user->email) }}" name="email" type="email"
+                    placeholder="example@email.com"
                     class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white placeholder-gray-400">
                 @error('email')
                     <p class="text-sm text-red-500">{{ $message }}</p>

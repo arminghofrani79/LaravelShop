@@ -4,7 +4,7 @@
 <header class="bg-cover bg-center bg-no-repeat w-full h-30 flex items-center px-4 md:px-8"
     style="background-image: url('{{ asset('images/banners/backgroundprofile.png') }}');">
     <h1 class="fon-bold text-2xl text-gray-600 px-4 py-2 rounded-lg">پروفایل کاربری</h1>
-</header>t
+</header>
 
 <main class="container mx-auto max-w-7xl px-4 py-8">
 
