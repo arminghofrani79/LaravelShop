@@ -3,69 +3,6 @@
 <!-- left col -->
 <div class="lg:col-span-3 flex flex-col gap-6">
 
-    {{-- cards --}}
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="bg-white rounded-xl shadow-sm p-5">
-            <div class="flex justify-between items-start">
-                <div>
-                    <span class="block text-sm text-gray-500 mb-1">تعداد سفارش‌ها</span>
-                    <span class="block text-2xl font-bold text-gray-800">586</span>
-                </div>
-                <div class="w-10 h-10 bg-yellow-50 rounded-full flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-600" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                </div>
-            </div>
-            <div class="mt-2 flex items-center gap-2 text-xs">
-                <span class="text-green-600 font-medium">+18%</span>
-                <span class="text-gray-400">در ۳۰ روز گذشته</span>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-xl shadow-sm p-5">
-            <div class="flex justify-between items-start">
-                <div>
-                    <span class="block text-sm text-gray-500 mb-1">تعداد کاربران</span>
-                    <span class="block text-2xl font-bold text-gray-800">1,247</span>
-                </div>
-                <div class="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-purple-600" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
-                </div>
-            </div>
-            <div class="mt-2 flex items-center gap-2 text-xs">
-                <span class="text-green-600 font-medium">+49%</span>
-                <span class="text-gray-400">در ۳۰ روز گذشته</span>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-xl shadow-sm p-5">
-            <div class="flex justify-between items-start">
-                <div>
-                    <span class="block text-sm text-gray-500 mb-1">تعداد محصولات</span>
-                    <span class="block text-2xl font-bold text-gray-800">248</span>
-                </div>
-                <div class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                    </svg>
-                </div>
-            </div>
-            <div class="mt-2 flex items-center gap-2 text-xs">
-                <span class="text-green-600 font-medium">+12%</span>
-                <span class="text-gray-400">در ۳۰ روز گذشته</span>
-            </div>
-        </div>
-    </div>
-
     {{-- products --}}
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
@@ -95,62 +32,26 @@
                         </tr>
                     </thead>
                     <tbody class="text-gray-700">
-                        <tr class="border-b border-gray-50">
-                            <td class="py-3 text-center font-medium">#1058</td>
-                            <td class="py-3 text-center">علی محمدی</td>
-                            <td class="py-3 text-center"><span
-                                    class="bg-green-100 text-green-700 px-2 py-1 rounded text-[10px]">تکمیل
-                                    شده</span></td>
-                            <td class="py-3 text-center">۱,۵۲۰,۰۰۰ تومان</td>
-                            <td class="py-3 text-center">
-                                <div class="flex flex-col items-center text-xs">
-                                    <span>۱۴۰۳/۰۲/۲۱</span>
-                                    <span class="text-gray-400">۱۴:۳۰</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="border-b border-gray-50">
-                            <td class="py-3 text-center font-medium">#1057</td>
-                            <td class="py-3 text-center">سارا احمدی</td>
-                            <td class="py-3 text-center"><span
-                                    class="bg-orange-100 text-orange-700 px-2 py-1 rounded text-[10px]">در حال
-                                    پردازش</span></td>
-                            <td class="py-3 text-center">۷۸۰,۰۰۰ تومان</td>
-                            <td class="py-3 text-center">
-                                <div class="flex flex-col items-center text-xs">
-                                    <span>۱۴۰۳/۰۲/۲۰</span>
-                                    <span class="text-gray-400">۱۰:۲۰</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="border-b border-gray-50">
-                            <td class="py-3 text-center font-medium">#1056</td>
-                            <td class="py-3 text-center">رضا کریمی</td>
-                            <td class="py-3 text-center"><span
-                                    class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-[10px]">ارسال
-                                    شده</span></td>
-                            <td class="py-3 text-center">۲,۳۴۰,۰۰۰ تومان</td>
-                            <td class="py-3 text-center">
-                                <div class="flex flex-col items-center text-xs">
-                                    <span>۱۴۰۳/۰۲/۲۰</span>
-                                    <span class="text-gray-400">۱۵:۱۰</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="border-b border-gray-50">
-                            <td class="py-3 text-center font-medium">#1055</td>
-                            <td class="py-3 text-center">مریم موسوی</td>
-                            <td class="py-3 text-center"><span
-                                    class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-[10px]">در
-                                    انتظار پرداخت</span></td>
-                            <td class="py-3 text-center">۵۴۰,۰۰۰ تومان</td>
-                            <td class="py-3 text-center">
-                                <div class="flex flex-col items-center text-xs">
-                                    <span>۱۴۰۳/۰۲/۱۹</span>
-                                    <span class="text-gray-400">۱۸:۴۵</span>
-                                </div>
-                            </td>
-                        </tr>
+                        @forelse ($orders as $order)
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 text-center font-medium">{{ $order->order_number }}</td>
+                                <td class="py-3 text-center"> {{ $order->user->name }}</td>
+                                <td class="py-3 text-center"><span
+                                        class="bg-green-100 text-green-700 px-2 py-1 rounded text-[10px]">
+                                        {{ $order->status }}
+                                    </span></td>
+                                <td class="py-3 text-center">{{ $order->total_price }} تومان</td>
+                                <td class="py-3 text-center">
+                                    <div class="flex flex-col items-center text-xs">
+                                        <span>{{ \Morilog\Jalali\Jalalian::fromDateTime($order->created_at)->format('Y/m/d') }}</span>
+                                        <span
+                                            class="text-gray-400">{{ \Morilog\Jalali\Jalalian::fromDateTime($order->created_at)->format('H:i') }}</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                        @endforelse
+
                     </tbody>
                 </table>
             </div>

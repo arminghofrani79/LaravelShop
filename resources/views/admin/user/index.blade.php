@@ -63,7 +63,7 @@
                         <td class="py-4 text-center text-gray-600 text-xs">{{ $user->email }}</td>
                         <td class="py-4 text-center">
                             <span
-                                class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-[10px] font-medium">مدیر</span>
+                                class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-[10px] font-medium">{{ $user->is_admin ? 'مدیر' : 'کاربر' }}</span>
                         </td>
                         <td class="py-4 text-center">
                             <span
