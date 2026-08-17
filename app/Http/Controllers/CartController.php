@@ -29,7 +29,7 @@ class CartController extends Controller
     {
         $data = $request->validate([
             'product_id' => 'required|exists:products,id',
-            'quantity' => 'required|integer'
+            'quantity' => 'required|integer|min:1',
         ]);
         $cart = session()->get('cart', []);
         $productId = $data['product_id'];

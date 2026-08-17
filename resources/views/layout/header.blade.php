@@ -52,12 +52,18 @@
                 </a>
             </nav>
 
-            <div
-                class="flex items-center border-2 border-gray-300 rounded-lg bg-gray-100  h-10 max-w-xs md:max-w-sm lg:max-w-md focus-within:border-blue-500 transition-all duration-200">
-                <img class="w-5 h-5 object-contain opacity-60" src="{{ asset('images/icons/search.png') }}"
-                    alt="">
-                <input class="w-full bg-transparent py-2 px-3 text-sm text-gray-700 outline-none placeholder-gray-400"
-                    type="text" placeholder="جستجو برای محصولات...">
+            <div>
+                <form action="{{ route('products') }}" method="GET"
+                    class="flex items-center border-2 border-gray-300 rounded-lg bg-gray-100  h-10 max-w-xs md:max-w-sm lg:max-w-md focus-within:border-blue-500 transition-all duration-200">
+                    <button type="submit" class="cursor-pointer">
+                        <img class="w-5 h-5 object-contain opacity-60" src="{{ asset('images/icons/search.png') }}"
+                            alt="">
+                    </button>
+                    <input
+                        class="w-full bg-transparent py-2 px-3 text-sm text-gray-700 outline-none placeholder-gray-400"
+                        name="search" type="text" placeholder="جستجو برای محصولات..."
+                        value="{{ request('search') }}"">
+                </form>
             </div>
 
             <div class="flex items-center gap-0.5">
@@ -79,6 +85,10 @@
                     <a href="{{ route('user-profile') }}"
                         class="flex justify-center items-center text-white px-1 py-1 rounded-lg hover:bg-gray-700 transition cursor-pointer">
                         <img class="w-4 h-4" src="{{ asset('images/icons/profile2.png') }}" alt="پروفایل">
+                    </a>
+                    <a href="{{ route('cart') }}"
+                        class="flex justify-center items-center text-white px-1 py-1 rounded-lg hover:bg-gray-700 transition cursor-pointer">
+                        <img class="w-4 h-4" src="{{ asset('images/icons/buy.png') }}" alt="سبد خرید">
                     </a>
 
                     {{-- exit button --}}

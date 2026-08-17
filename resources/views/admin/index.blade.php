@@ -59,34 +59,28 @@
 
         <!-- product less -->
         <div class="bg-white rounded-xl shadow-sm p-5">
-            <h3 class="font-bold text-gray-800 text-sm mb-4 border-b border-gray-100 pb-4">محصولات کم‌موجودی
+            <h3 class="font-bold text-gray-800 text-sm mb-4 border-b border-gray-100 pb-4">
+                محصولات کم‌موجودی
             </h3>
 
             <div class="flex flex-col gap-4">
-                <div class="flex items-center justify-between border-b border-gray-50 pb-3">
-                    <div class="flex flex-col gap-1">
-                        <span class="text-sm text-gray-800">WH-1000XM5</span>
-                        <span class="text-xs text-gray-400">موجودی: <span class="text-gray-700">۳</span>
-                            عدد</span>
+                @foreach ($lessProducts as $product)
+                    <div class="flex items-center justify-between border-b border-gray-50 pb-3">
+                        <div class="flex flex-col gap-1">
+                            <span class="text-sm text-gray-800">{{ $product->name }}</span>
+                            <span class="text-xs text-gray-400">موجودی: <span class="text-gray-700">
+                                    {{ $product->stock }}</span>
+                                عدد</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="bg-red-100 text-red-600 px-2 py-0.5 rounded text-[10px]">کم‌موجودی</span>
+                            <img src="{{ asset('/storage/images/products/' . $product->image) }}" alt="product"
+                                class="w-10 h-10 object-contain rounded-lg bg-gray-50">
+                        </div>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <span class="bg-red-100 text-red-600 px-2 py-0.5 rounded text-[10px]">کم‌موجودی</span>
-                        <img src="https://picsum.photos/id/21/50/50" alt="product"
-                            class="w-10 h-10 object-contain rounded-lg bg-gray-50">
-                    </div>
-                </div>
-                <div class="flex items-center justify-between border-b border-gray-50 pb-3">
-                    <div class="flex flex-col gap-1">
-                        <span class="text-sm text-gray-800">Galaxy Watch 6</span>
-                        <span class="text-xs text-gray-400">موجودی: <span class="text-gray-700">۵</span>
-                            عدد</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="bg-red-100 text-red-600 px-2 py-0.5 rounded text-[10px]">کم‌موجودی</span>
-                        <img src="https://picsum.photos/id/96/50/50" alt="product"
-                            class="w-10 h-10 object-contain rounded-lg bg-gray-50">
-                    </div>
-                </div>
+                @endforeach
+
+
 
 
             </div>
@@ -111,19 +105,21 @@
             </div>
 
             <div class="grid grid-cols-3 gap-4">
-                <div class="flex flex-col gap-2">
-                    <img src="https://picsum.photos/id/10/200/150" alt="article"
-                        class="w-full h-20 rounded-lg object-cover">
-                    <div>
-                        <span
-                            class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-[10px] inline-block mb-1">آموزش</span>
-                        <h4 class="text-xs font-bold text-gray-800 line-clamp-2">راهنمای خرید لپ‌تاپ مناسب برای
-                            برنامه‌نویسان</h4>
-                        <div class="flex justify-between items-center mt-2 text-[10px] text-gray-400">
-                            <span>۱۴۰۳/۰۲/۲۰</span>
+                @foreach ($articles as $article)
+                    <div class="flex flex-col gap-2">
+                        <img src="{{ asset('/storage/images/articles/' . $article->image) }}" alt="article"
+                            class="w-full h-20 rounded-lg object-cover">
+                        <div>
+                            <span
+                                class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-[10px] inline-block mb-1">مقاله</span>
+                            <h4 class="text-xs font-bold text-gray-800 line-clamp-2">
+                                {{ $article->title }}
+                            </h4>
+
                         </div>
                     </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
 

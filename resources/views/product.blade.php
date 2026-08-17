@@ -71,8 +71,8 @@
                                 class="text-sm text-gray-500 font-normal">تومان</span>
                         </p>
 
-                        {{-- لینک مشاهده محصول (اختیاری) --}}
-                        <a href="{{ route('product.show', $related->id) }}"
+                        {{-- لینک مشاهده محصول --}}
+                        <a href="{{ route('product-show', $related->id) }}"
                             class="block mt-2 text-center text-xs text-blue-500 hover:underline">
                             مشاهده جزئیات
                         </a>

@@ -83,7 +83,9 @@
                     <p>{{ $category->name }}</p>
                 </div>
             @endforeach
+
         </div>
+
     </div>
 
     {{-- feature products --}}

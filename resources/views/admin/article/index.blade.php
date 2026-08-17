@@ -54,7 +54,7 @@
                 @foreach ($articles as $article)
                     <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition">
                         <td class="py-4 flex items-center gap-3 pl-4">
-                            <img src="https://picsum.photos/id/10/50/50" alt="article"
+                            <img src="{{ asset('storage/images/articles/' . $article->image) }}" alt="article"
                                 class="w-10 h-10 object-cover rounded border border-gray-100 bg-gray-50">
                             <span class="font-medium text-gray-800 text-sm"></span>
                         </td>
@@ -68,7 +68,8 @@
                                 class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-600 hover:bg-blue-50 rounded-lg transition">
                                 <img class="w-4 h-4" src="{{ asset('images/icons/edit.png') }}" alt="">
                             </a>
-                            <form method="POST" action="{{ route('admin-delete-article', ['article' => $article->id]) }}"
+                            <form method="POST"
+                                action="{{ route('admin-delete-article', ['article' => $article->id]) }}"
                                 class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-500 hover:bg-red-50 rounded-lg transition">
                                 @csrf @method('DELETE')
                                 <button type="submit"><img class="w-4 h-4" src="{{ asset('images/icons/delete.png') }}"
