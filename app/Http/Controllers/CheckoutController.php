@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\OrderPlaced;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -136,6 +137,8 @@ class CheckoutController extends Controller
 
             return $order;
         });
+
+        OrderPlaced::dispatch($order);
 
         session()->forget('cart');
 
