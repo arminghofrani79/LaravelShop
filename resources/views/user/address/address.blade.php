@@ -80,7 +80,7 @@
                         class="flex-1 flex items-center justify-center gap-1 border border-gray-200 hover:bg-gray-50 text-gray-500 py-2 rounded-lg text-xs transition">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="flex">
+                        <button type="button" class="delete-btn" data-title="{{ $address->title }}">
                             <img class="w-4 h-4" src="{{ asset('images/icons/delete.png') }}" alt="">
                             <p class="text-gray-500"> حذف</p>
                         </button>

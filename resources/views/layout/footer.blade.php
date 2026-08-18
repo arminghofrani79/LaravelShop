@@ -37,6 +37,12 @@
         </div>
     </div>
 </footer>
+
+{{-- js --}}
+@include('components.toast')
+@include('components.delete-modal')
+@vite('resources/js/app.js')
+
 </body>
 
 </html>

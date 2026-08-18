@@ -79,8 +79,9 @@
                                 class="w-7 h-7 flex items-center justify-center border border-gray-200 text-gray-500 hover:bg-red-50 rounded-lg transition">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit"><img class=" cursor-pointer w-4 h-4"
-                                        src="{{ asset('images/icons/delete.png') }}" alt=""></button>
+                                <button type="button" class="delete-btn" data-title="{{ $user->name }}"><img
+                                        class=" cursor-pointer w-4 h-4" src="{{ asset('images/icons/delete.png') }}"
+                                        alt=""></button>
                             </form>
                         </td>
                     </tr>

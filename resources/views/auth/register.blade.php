@@ -42,8 +42,16 @@
                 <label class="text-sm font-medium text-gray-700">
                     رمز عبور <span class="text-red-500">*</span>
                 </label>
-                <input type="password" name="password" placeholder="رمز عبور خود را وارد کنید..."
-                    class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all bg-white placeholder-gray-400">
+
+                <div class="relative password-wrapper">
+                    <input type="password" name="password" placeholder="رمز عبور خود را وارد کنید..."
+                        class="password-input w-full px-4 py-2.5 pr-10 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all bg-white placeholder-gray-400">
+
+                    <button type="button"
+                        class="toggle-password absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
+                        <img src="{{ asset('images/icons/eye.png') }}" class="w-5 h-5" alt="نمایش رمز">
+                    </button>
+                </div>
                 @error('password')
                     <p class="text-sm text-red-500 mt-0.5">{{ $message }}</p>
                 @enderror
@@ -54,8 +62,15 @@
                 <label class="text-sm font-medium text-gray-700">
                     تکرار رمز عبور <span class="text-red-500">*</span>
                 </label>
-                <input type="password" name="password_confirmation" placeholder="رمز عبور را مجدداً وارد کنید..."
-                    class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all bg-white placeholder-gray-400">
+                <div class="relative password-wrapper">
+                    <input type="password" name="password_confirmation" placeholder="رمز عبور خود را وارد کنید..."
+                        class="password-input w-full px-4 py-2.5 pr-10 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all bg-white placeholder-gray-400">
+
+                    <button type="button"
+                        class="toggle-password absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
+                        <img src="{{ asset('images/icons/eye.png') }}" class="w-5 h-5" alt="نمایش رمز">
+                    </button>
+                </div>
             </div>
 
             {{-- دکمه ارسال --}}

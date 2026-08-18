@@ -71,9 +71,15 @@
                             <form method="POST"
                                 action="{{ route('admin-delete-article', ['article' => $article->id]) }}"
                                 class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-500 hover:bg-red-50 rounded-lg transition">
-                                @csrf @method('DELETE')
-                                <button type="submit"><img class="w-4 h-4" src="{{ asset('images/icons/delete.png') }}"
-                                        alt="delete"></button>
+
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="button" class="delete-btn" data-title="{{ $article->title }}">
+
+                                    <img class="w-4 h-4" src="{{ asset('images/icons/delete.png') }}" alt="delete">
+                                </button>
+
                             </form>
                         </td>
                     </tr>

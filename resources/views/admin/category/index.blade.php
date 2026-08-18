@@ -78,8 +78,11 @@
                             <form method="POST"
                                 action="{{ route('admin-delete-category', ['category' => $category->id]) }}"
                                 class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-500 hover:bg-red-50 rounded-lg transition">
-                                @csrf @method('DELETE')
-                                <button>
+
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="button" class="delete-btn" data-title="{{ $category->name }}">
                                     <img class="w-4 h-4" src="{{ asset('images/icons/delete.png') }}" alt="">
                                 </button>
                             </form>

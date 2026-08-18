@@ -80,7 +80,7 @@
                                 action="{{ route('admin-delete-product', ['product' => $product->id]) }}"
                                 class="w-8 h-8 flex items-center justify-center border border-red-100 text-red-500 hover:bg-red-50 rounded-lg transition">
                                 @csrf @method('DELETE')
-                                <button type="submit">
+                                <button type="button" class="delete-btn" data-title="{{ $product->name }}">
                                     <img class="h-4 w-4" src="{{ asset('images/icons/delete.png') }}"
                                         alt=""></button>
                             </form>
