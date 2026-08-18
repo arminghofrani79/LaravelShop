@@ -47,7 +47,7 @@
                 </label>
 
                 {{-- لینک فراموشی رمز عبور (اختیاری) --}}
-                <a href="#" class="text-xs text-blue-600 hover:underline">
+                <a href="{{route('show-forgetpassword')}}" class="text-xs text-blue-600 hover:underline">
                     فراموشی رمز عبور؟
                 </a>
             </div>

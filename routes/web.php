@@ -176,6 +176,17 @@ Route::middleware('guest')->group(function () {
     //login
     Route::get('/login', [AuthController::class, 'showLogin'])->name('show-login');
     Route::post('/login', [AuthController::class, 'login'])->name('login');
+    //forget-password
+    //show forget password page
+    Route::get('/forget-password', [AuthController::class, 'showForgetPassword'])->name('show-forgetpassword');
+    // send email 
+    Route::post('/forget-password', [AuthController::class, 'sendResetLink'])->name('password.email');
+    //show link page that went with email
+    Route::get('/reset-password/{token}', [AuthController::class, 'showResetPassword'])
+        ->name('password.reset');
+    Route::post('/reset-password', [AuthController::class, 'resetPassword'])
+        ->name('password.update');
+    //change password
 });
 Route::post('/logout', [AuthController::class, 'logout'])
     ->middleware('auth')
