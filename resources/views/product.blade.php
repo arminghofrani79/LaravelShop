@@ -28,7 +28,7 @@
                         <button type="submit"
                             class="flex-1 flex items-center justify-center gap-2 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2.5 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer">
                             <img class="w-5 h-5 object-contain filter brightness-0 invert"
-                                src="{{ asset('images/icons/buy.png') }}" alt="افزودن به سبد خرید">
+                                src="{{ asset('images/icons/buy.webp') }}" alt="افزودن به سبد خرید">
                             <span>افزودن به سبد خرید</span>
                         </button>
                     </form>

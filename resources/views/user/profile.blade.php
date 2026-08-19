@@ -5,7 +5,7 @@
     <!-- profile informatin -->
     <div class="bg-white rounded-xl shadow-sm p-6">
         <div class="flex items-center gap-2 text-lg font-bold text-gray-800 mb-6 border-b border-gray-100 pb-4">
-            <img class="w-4 h-4" src="{{ asset('images/icons/profile2.png') }}" alt="">
+            <img class="w-4 h-4" src="{{ asset('images/icons/profile2.webp') }}" alt="">
             <span>اطلاعات حساب</span>
         </div>
 
@@ -99,7 +99,7 @@
         <div class="bg-white rounded-xl shadow-sm p-6">
             <div class="flex items-center justify-between border-b border-gray-100 pb-3 mb-4">
                 <h4 class="font-bold text-gray-800 flex items-center gap-2">
-                    <img src="{{ 'images/icons/buy.png' }}" alt="کاربر"class="w-6 h-6 object-cover">
+                    <img src="{{ 'images/icons/buy.webp' }}" alt="کاربر"class="w-6 h-6 object-cover">
                     آخرین سفارش‌ها
                 </h4>
                 <a href="{{ route('user-order') }}"
@@ -137,7 +137,7 @@
         <!-- last address -->
         <div class="bg-white rounded-xl shadow-sm p-6">
             <div class="flex items-center gap-2 border-b border-gray-100 pb-3 mb-4">
-                <img src="{{ 'images/icons/address.png' }}" alt="کاربر"class="w-6 h-6 object-cover">
+                <img src="{{ 'images/icons/address.webp' }}" alt="کاربر"class="w-6 h-6 object-cover">
                 <h4 class="font-bold text-gray-800">آدرس پیش‌فرض</h4>
             </div>
 
@@ -162,7 +162,7 @@
             <div class="mt-4 pt-4 border-t border-gray-100">
                 <a href="{{ route('user-address') }}"
                     class="bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg text-sm flex items-center gap-2 transition w-full justify-center">
-                    <img src="{{ 'images/icons/edit.png' }}" alt="کاربر"class="w-6 h-6 object-cover">
+                    <img src="{{ 'images/icons/edit.webp' }}" alt="کاربر"class="w-6 h-6 object-cover">
                     ویرایش آدرس
                 </a>
             </div>

@@ -1,11 +1,10 @@
 @include('layout.header')
 {{-- header --}}
 <header class="bg-cover bg-center bg-no-repeat w-full h-30 flex items-center px-4 md:px-8"
-    style="background-image: url('{{ asset('images/banners/backgroundcontact.png') }}');">
+    style="background-image: url('{{ asset('images/banners/backgroundcontact.webp') }}');">
     <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">درباره ما</h1>
-    <p class="text-gray-500 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-        با بیش از یک دهه تجربه در ارائه بهترین محصولات دیجیتال، همراه شما هستیم تا خریدی مطمئن و لذت‌بخش را تجربه
-        کنید.
+    <p class="hidden md:block text-gray-500 w-105 text-sm md:text-base max-w-2xl mx-15 leading-relaxed">
+        با بیش از یک دهه تجربه در ارائه بهترین محصولات دیجیتال، همراه شما هستیم تا خریدی مطمئن و لذت‌بخش را تجربه کنید.
     </p>
 </header>
 
@@ -14,7 +13,7 @@
     {{-- header --}}
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-16 p-5">
         <div class="w-full h-64 md:h-80 rounded-xl overflow-hidden shadow-sm">
-            <img src="{{ asset('images/banners/contact.jpg') }}" alt="درباره ما" class="w-full h-full object-cover">
+            <img src="{{ asset('images/banners/contact.webp') }}" alt="درباره ما" class="w-full h-full object-cover">
         </div>
         <div class="space-y-4 text-right">
             <h2 class="text-2xl font-bold text-gray-800">داستان ما</h2>
@@ -35,7 +34,7 @@
 
         <div class="bg-white rounded-xl shadow-sm p-6 text-center border border-gray-100 hover:shadow-md transition">
             <div class="w-12 h-12 bg-gray-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src="{{ asset('images/icons/star.png') }}" alt="">
+                <img src="{{ asset('images/icons/star.webp') }}" alt="">
             </div>
             <h3 class="font-bold text-gray-800 text-lg mb-2">چشم‌انداز</h3>
             <p class="text-gray-500 text-sm leading-relaxed">
@@ -45,7 +44,7 @@
 
         <div class="bg-white rounded-xl shadow-sm p-6 text-center border border-gray-100 hover:shadow-md transition">
             <div class="w-12 h-12 bg-gray-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src="{{ asset('images/icons/star2.png') }}" alt="">
+                <img src="{{ asset('images/icons/star2.webp') }}" alt="">
             </div>
             <h3 class="font-bold text-gray-800 text-lg mb-2">مأموریت ما</h3>
             <p class="text-gray-500 text-sm leading-relaxed">
@@ -55,7 +54,7 @@
 
         <div class="bg-white rounded-xl shadow-sm p-6 text-center border border-gray-100 hover:shadow-md transition">
             <div class="w-12 h-12 bg-gray-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src="{{ asset('images/icons/love.png') }}" alt="">
+                <img src="{{ asset('images/icons/love.webp') }}" alt="">
             </div>
             <h3 class="font-bold text-gray-800 text-lg mb-2">ارزش‌های ما</h3>
             <p class="text-gray-500 text-sm leading-relaxed">
@@ -79,7 +78,7 @@
             <div
                 class="flex flex-col items-center text-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition">
                 <div class="w-10 h-10 bg-gray-100 text-blue-600 rounded-full flex items-center justify-center mb-3">
-                    <img src="{{ asset('images/icons/phone.png') }}" alt="">
+                    <img src="{{ asset('images/icons/phone.webp') }}" alt="">
                 </div>
                 <h4 class="font-bold text-gray-700 text-sm mb-1">شماره تماس</h4>
                 <p class="text-gray-600 text-sm font-medium">۰۲۱ - ۱۲۳۴۵۶۷۸</p>
@@ -90,7 +89,7 @@
             <div
                 class="flex flex-col items-center text-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition">
                 <div class="w-10 h-10 bg-gray-100 text-blue-600 rounded-full flex items-center justify-center mb-3">
-                    <img src="{{ asset('images/icons/email.png') }}" alt="">
+                    <img src="{{ asset('images/icons/email.webp') }}" alt="">
                 </div>
                 <h4 class="font-bold text-gray-700 text-sm mb-1">ایمیل</h4>
                 <a href="mailto:info@laravelshop.com"
@@ -101,7 +100,7 @@
             <div
                 class="flex flex-col items-center text-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition">
                 <div class="w-10 h-10 bg-gray-100 text-blue-600 rounded-full flex items-center justify-center mb-3">
-                    <img src="{{ asset('images/icons/address.png') }}" alt="">
+                    <img src="{{ asset('images/icons/address.webp') }}" alt="">
                 </div>
                 <h4 class="font-bold text-gray-700 text-sm mb-1">آدرس دفتر مرکزی</h4>
                 <p class="text-gray-600 text-sm leading-relaxed">تهران، خیابان ولیعصر، نبش میدان ونک، برج تجاری ونک،

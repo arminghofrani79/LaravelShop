@@ -34,10 +34,10 @@ class ArticleController extends Controller
         $request->validate([
             'title' => 'required|min:6|max:100',
             'status' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image|mimes:webp|max:2048',
             'content' => 'required|min:10|max:2000'
         ]);
-        $filename = time() . '-' . $request->image->getClientOriginalName();
+        $filename = time() . '-' . pathinfo($request->image->getClientOriginalName(), PATHINFO_FILENAME) . '.webp';
         $request->image->storeAs('images/articles', $filename, 'public');
         Article::create([
             'title' => $request->title,
@@ -72,12 +72,12 @@ class ArticleController extends Controller
         $request->validate([
             'title' => 'required|min:6|max:200',
             'status' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:webp|max:2048',
             'content' => 'required|min:10|max:2000'
         ]);
         $filename = $article->image;
         if ($request->hasFile('image')) {
-            $filename = time() . '-' . $request->image->getClientOriginalName();
+            $filename = time() . '-' . pathinfo($request->image->getClientOriginalName(), PATHINFO_FILENAME) . '.webp';
 
             $request->image->storeAs(
                 'images/articles',

@@ -7,7 +7,7 @@
                 <p class="text-gray-400 text-sm leading-relaxed">
                     یک فروشگاه اینترنتی آزمایشی که توسط لاراول تولید شده است
                 </p>
-                <img class="h-40 w-70" src="{{ asset('images/logo/brand.png') }}" alt="brand">
+                <img class="h-40 w-70" src="{{ asset('images/logo/brand.webp') }}" alt="brand">
             </div>
 
             <div>

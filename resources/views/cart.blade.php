@@ -2,7 +2,7 @@
 
 {{-- header --}}
 <header class="bg-cover bg-center bg-no-repeat w-full h-32 flex items-center px-4 md:px-8"
-    style="background-image: url('{{ asset('images/banners/backgroundcart.png') }}');">
+    style="background-image: url('{{ asset('images/banners/backgroundcart.webp') }}');">
     <h1 class="font-bold text-2xl text-gray-600 px-4 py-2 rounded-lg">سبد خرید</h1>
 </header>
 
@@ -64,7 +64,7 @@
                             @method('DELETE')
                             <button type="submit"
                                 class="w-8 h-8 flex items-center justify-center border border-red-200 rounded-lg hover:bg-red-50 transition">
-                                <img class="w-4 h-4" src="{{ asset('images/icons/delete.png') }}" alt="حذف">
+                                <img class="w-4 h-4" src="{{ asset('images/icons/delete.webp') }}" alt="حذف">
                             </button>
                         </form>
                     </div>
@@ -77,7 +77,7 @@
 
         <div class="lg:col-span-1 bg-white rounded-xl shadow-sm p-6 h-fit">
             <h3 class="text-lg font-bold mb-4 flex items-center gap-2 text-gray-900">
-                <img class="rounded-md border-gray-400 w-6 h-6" src="{{ 'images/icons/order.png' }}" alt="a">
+                <img class="rounded-md border-gray-400 w-6 h-6" src="{{ 'images/icons/order.webp' }}" alt="a">
                 خلاصه سفارش
             </h3>
 
@@ -139,28 +139,28 @@
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
         <div class="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center justify-center text-center gap-3">
             <div class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center">
-                <img class="w-5 h-5 object-contain" src="{{ asset('images/icons/safe.png') }}" alt="">
+                <img class="w-5 h-5 object-contain" src="{{ asset('images/icons/safe.webp') }}" alt="">
             </div>
             <span class="font-bold text-sm text-gray-800">پرداخت امن</span>
             <span class="text-xs text-gray-500">با درگاه‌های معتبر بانکی</span>
         </div>
         <div class="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center justify-center text-center gap-3">
             <div class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center">
-                <img class="w-5 h-5 object-contain" src="{{ asset('images/icons/24h.png') }}" alt="">
+                <img class="w-5 h-5 object-contain" src="{{ asset('images/icons/24h.webp') }}" alt="">
             </div>
             <span class="font-bold text-sm text-gray-800">پشتیبانی ۲۴/۷</span>
             <span class="text-xs text-gray-500">پاسخگویی شما در تمام لحظات</span>
         </div>
         <div class="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center justify-center text-center gap-3">
             <div class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center">
-                <img class="w-5 h-5 object-contain" src="{{ asset('images/icons/garanti.png') }}" alt="">
+                <img class="w-5 h-5 object-contain" src="{{ asset('images/icons/garanti.webp') }}" alt="">
             </div>
             <span class="font-bold text-sm text-gray-800">ضمانت اصالت کالا</span>
             <span class="text-xs text-gray-500">کالاهای اورجینال با ضمانت بازگشت</span>
         </div>
         <div class="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center justify-center text-center gap-3">
             <div class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center">
-                <img class="w-5 h-5 object-contain" src="{{ asset('images/icons/send.png') }}" alt="">
+                <img class="w-5 h-5 object-contain" src="{{ asset('images/icons/send.webp') }}" alt="">
             </div>
             <span class="font-bold text-sm text-gray-800">ارسال رایگان</span>
             <span class="text-xs text-gray-500">برای سفارش‌های بالای ۳ میلیون تومان</span>

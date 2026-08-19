@@ -16,7 +16,7 @@
             {{-- search --}}
             <div class="relative w-full md:w-64">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <img class="w-4 h-4" src="{{ asset('images/icons/search.png') }}" alt="">
+                    <img class="w-4 h-4" src="{{ asset('images/icons/search.webp') }}" alt="">
                 </div>
                 <input type="text" placeholder="جستجو در مقالات..."
                     class="block w-full pl-10 pr-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -66,7 +66,7 @@
                         <td class="py-4 text-center flex justify-center gap-2">
                             <a href="{{ route('admin-edit-article', ['article' => $article->id]) }}"
                                 class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-600 hover:bg-blue-50 rounded-lg transition">
-                                <img class="w-4 h-4" src="{{ asset('images/icons/edit.png') }}" alt="">
+                                <img class="w-4 h-4" src="{{ asset('images/icons/edit.webp') }}" alt="">
                             </a>
                             <form method="POST"
                                 action="{{ route('admin-delete-article', ['article' => $article->id]) }}"
@@ -77,7 +77,7 @@
 
                                 <button type="button" class="delete-btn" data-title="{{ $article->title }}">
 
-                                    <img class="w-4 h-4" src="{{ asset('images/icons/delete.png') }}" alt="delete">
+                                    <img class="w-4 h-4" src="{{ asset('images/icons/delete.webp') }}" alt="delete">
                                 </button>
 
                             </form>

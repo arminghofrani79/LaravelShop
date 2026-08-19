@@ -6,7 +6,7 @@
             @method('PUT')
             {{-- header --}}
             <div class="flex items-center gap-2 pb-4 border-b border-gray-100">
-                <img class="h-4 w-4" src="{{ asset('images/icons/profile2.png') }}" alt="">
+                <img class="h-4 w-4" src="{{ asset('images/icons/profile2.webp') }}" alt="">
                 <h2 class="text-lg font-bold text-gray-800">ویرایش اطلاعات حساب</h2>
             </div>
 
@@ -32,13 +32,13 @@
 
         <button type="submit"
             class="flex items-center gap-2 bg-gray-700 hover:bg-gray-800 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200 shadow-sm hover:shadow-md">
-            <img class="w-4 h-4" src="{{ asset('images/icons/edit.png') }}" alt="">
+            <img class="w-4 h-4" src="{{ asset('images/icons/edit.webp') }}" alt="">
             ویرایش اطلاعات
         </button>
 
         <a href="{{ route('user-edit-password-profile') }}"
             class="flex items-center gap-2 text-gray-600 hover:text-gray-800 text-sm font-medium transition-colors duration-200 hover:underline">
-            <img class="w-4 h-4" src="{{ asset('images/icons/setting.png') }}" alt="">
+            <img class="w-4 h-4" src="{{ asset('images/icons/setting.webp') }}" alt="">
             ویرایش رمز عبور
         </a>
 

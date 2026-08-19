@@ -6,7 +6,7 @@
             @method('PUT')
             {{-- header --}}
             <div class="flex items-center gap-2 pb-4 border-b border-gray-100">
-                <img class="h-4 w-4" src="{{ asset('images/icons/profile2.png') }}" alt="">
+                <img class="h-4 w-4" src="{{ asset('images/icons/profile2.webp') }}" alt="">
                 <h2 class="text-lg font-bold text-gray-800">ویرایش اطلاعات حساب</h2>
             </div>
 

@@ -56,7 +56,7 @@
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col gap-4">
             <div class="flex items-center gap-2 pb-3 border-b border-gray-100">
                 <h3 class="font-bold text-gray-800 text-sm flex items-center gap-2">
-                    <img class="w-4 h-4" src="{{ asset('images/icons/profile2.png') }}" alt="">
+                    <img class="w-4 h-4" src="{{ asset('images/icons/profile2.webp') }}" alt="">
                     اطلاعات دریافت‌کننده
                 </h3>
             </div>
@@ -81,7 +81,7 @@
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col gap-4">
             <div class="flex items-center gap-2 pb-3 border-b border-gray-100">
                 <h3 class="font-bold text-gray-800 text-sm flex items-center gap-2">
-                    <img class="w-4 h-4" src="{{ asset('images/icons/address.png') }}" alt="">
+                    <img class="w-4 h-4" src="{{ asset('images/icons/address.webp') }}" alt="">
                     نشانی ارسال
                 </h3>
             </div>
@@ -109,7 +109,7 @@
     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 overflow-x-auto">
         <div class="flex items-center gap-2 pb-4 mb-4 border-b border-gray-100">
             <h3 class="font-bold text-gray-800 text-sm flex items-center gap-2">
-                <img class="w-4 h-4" src="{{ asset('images/icons/buy.png') }}" alt="">
+                <img class="w-4 h-4" src="{{ asset('images/icons/buy.webp') }}" alt="">
                 محصولات سفارش
             </h3>
         </div>
@@ -162,7 +162,7 @@
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col gap-4">
             <div class="flex items-center gap-2 pb-4 mb-2 border-b border-gray-100">
                 <h3 class="font-bold text-gray-800 text-sm flex items-center gap-2">
-                    <img class="w-4 h-4" src="{{ asset('images/icons/order.png') }}" alt="">
+                    <img class="w-4 h-4" src="{{ asset('images/icons/order.webp') }}" alt="">
                     خلاصه سفارش
                 </h3>
             </div>
@@ -191,7 +191,7 @@
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col gap-4">
             <div class="flex items-center gap-2 pb-4 mb-2 border-b border-gray-100">
                 <h3 class="font-bold text-gray-800 text-sm flex items-center gap-2">
-                    <img class="w-4 h-4" src="{{ asset('images/icons/send.png') }}" alt="">
+                    <img class="w-4 h-4" src="{{ asset('images/icons/send.webp') }}" alt="">
                     کد رهگیری پستی
                 </h3>
             </div>

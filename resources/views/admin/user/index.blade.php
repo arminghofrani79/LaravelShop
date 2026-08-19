@@ -16,7 +16,7 @@
             {{-- search --}}
             <div class="relative w-full md:w-80">
                 <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                    <img class="w-4 h-4" src="{{ asset('images/icons/search.png') }}" alt="">
+                    <img class="w-4 h-4" src="{{ asset('images/icons/search.webp') }}" alt="">
                 </div>
                 <input type="text" placeholder="جستجو بر اساس نام، ایمیل یا موبایل..."
                     class="block w-full pl-3 pr-10 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -56,7 +56,7 @@
                 @foreach ($users as $user)
                     <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition">
                         <td class="py-4 flex items-center gap-3 pl-4">
-                            <img src="{{ asset('images/icons/profile.png') }}" alt="user"
+                            <img src="{{ asset('images/icons/profile.webp') }}" alt="user"
                                 class="w-8 h-8 rounded-full object-cover border border-gray-100">
                             <span class="font-medium text-gray-800 text-sm">{{ $user->name }}</span>
                         </td>
@@ -73,14 +73,14 @@
                         <td class="py-4 text-center flex justify-center gap-2">
                             <a href="{{ route('admin-watch-user', $user->id) }}"
                                 class="w-7 h-7 flex items-center justify-center border border-gray-200 text-gray-600 hover:bg-blue-50 rounded-lg transition">
-                                <img class="w-4 h-4" src="{{ asset('images/icons/eye.png') }}" alt="">
+                                <img class="w-4 h-4" src="{{ asset('images/icons/eye.webp') }}" alt="">
                             </a>
                             <form method="POST" action="{{ route('admin-destroy-user', ['user' => $user->id]) }}"
                                 class="w-7 h-7 flex items-center justify-center border border-gray-200 text-gray-500 hover:bg-red-50 rounded-lg transition">
                                 @csrf
                                 @method('DELETE')
                                 <button type="button" class="delete-btn" data-title="{{ $user->name }}"><img
-                                        class=" cursor-pointer w-4 h-4" src="{{ asset('images/icons/delete.png') }}"
+                                        class=" cursor-pointer w-4 h-4" src="{{ asset('images/icons/delete.webp') }}"
                                         alt=""></button>
                             </form>
                         </td>

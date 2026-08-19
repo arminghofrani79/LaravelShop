@@ -22,7 +22,7 @@
         <!-- search -->
         <div class="relative w-full md:w-80">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <img class="w-4 h-4" src="{{ asset('images/icons/search.png') }}" alt="">
+                <img class="w-4 h-4" src="{{ asset('images/icons/search.webp') }}" alt="">
             </div>
             <input type="text" placeholder="جستجو در دسته‌بندی‌ها..."
                 class="block w-full pl-10 pr-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -39,7 +39,7 @@
         <!-- filter bottun -->
         <button
             class="w-full md:w-auto flex items-center justify-center gap-2 px-4 py-2 border border-gray-200 bg-white rounded-lg text-sm text-gray-700 hover:bg-gray-50 transition">
-            <img class="w-4 h-4" src="{{ asset('images/icons/filter.png') }}" alt="">
+            <img class="w-4 h-4" src="{{ asset('images/icons/filter.webp') }}" alt="">
             فیلتر
         </button>
     </div>
@@ -61,7 +61,7 @@
                     <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition">
                         <td class="py-4 flex items-center gap-3 pl-4">
                             <div class="w-8 h-8 bg-gray-50 text-gray-600 rounded-lg flex items-center justify-center">
-                                <img class="w-5 h-5" src="{{ asset('images/icons/watch.png') }}" alt="">
+                                <img class="w-5 h-5" src="{{ asset('images/icons/watch.webp') }}" alt="">
                             </div>
                             <span class="font-medium text-gray-800">{{ $category->name }}</span>
                         </td>
@@ -73,7 +73,7 @@
                         <td class="py-4 text-center flex justify-center gap-2">
                             <a href="{{ route('admin-edit-category', ['category' => $category->id]) }}"
                                 class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-600 hover:bg-blue-50 rounded-lg transition">
-                                <img class="w-4 h-4" src="{{ asset('images/icons/edit.png') }}" alt="">
+                                <img class="w-4 h-4" src="{{ asset('images/icons/edit.webp') }}" alt="">
                             </a>
                             <form method="POST"
                                 action="{{ route('admin-delete-category', ['category' => $category->id]) }}"
@@ -83,7 +83,7 @@
                                 @method('DELETE')
 
                                 <button type="button" class="delete-btn" data-title="{{ $category->name }}">
-                                    <img class="w-4 h-4" src="{{ asset('images/icons/delete.png') }}" alt="">
+                                    <img class="w-4 h-4" src="{{ asset('images/icons/delete.webp') }}" alt="">
                                 </button>
                             </form>
                         </td>

@@ -21,7 +21,7 @@
                 <span class="text-lg font-bold text-gray-800 mt-1">{{ $totalAddresses }}</span>
             </div>
             <div class="w-10 h-10 bg-gray-100 text-gray-600 rounded-full flex items-center justify-center">
-                <img class="w-4 h-4" src="{{ asset('images/icons/address.png') }}" alt="">
+                <img class="w-4 h-4" src="{{ asset('images/icons/address.webp') }}" alt="">
             </div>
         </div>
         <div class="bg-white rounded-xl shadow-sm p-4 flex items-center justify-between">
@@ -30,7 +30,7 @@
                 <span class="text-lg font-bold text-gray-800 mt-1">{{ $defaultAddresses }}</span>
             </div>
             <div class="w-10 h-10 bg-gray-50 text-gray-500 rounded-full flex items-center justify-center">
-                <img class="w-4 h-4" src="{{ asset('images/icons/location.png') }}" alt="">
+                <img class="w-4 h-4" src="{{ asset('images/icons/location.webp') }}" alt="">
             </div>
         </div>
     </div>
@@ -41,7 +41,7 @@
             <div class="bg-white rounded-xl shadow-sm p-5 flex flex-col gap-3">
                 <div class="relative flex justify-between items-start">
                     <h4 class="font-bold text-gray-800 text-sm flex items-center gap-2">
-                        <img class="w-4 h-4" src="{{ asset('images/icons/address.png') }}" alt="">
+                        <img class="w-4 h-4" src="{{ asset('images/icons/address.webp') }}" alt="">
                         {{ $address->title }}
                     </h4>
                     <span
@@ -54,18 +54,18 @@
 
                 <div class="space-y-2 text-sm">
                     <div class="flex items-center gap-2 text-gray-600 text-xs">
-                        <img class="w-4 h-4" src="{{ asset('images/icons/profile2.png') }}" alt="">
+                        <img class="w-4 h-4" src="{{ asset('images/icons/profile2.webp') }}" alt="">
                         <span> {{ $address->full_name }}</span>
                     </div>
                     <div class="flex items-center gap-2 text-gray-600 text-xs">
-                        <img class="w-4 h-4" src="{{ asset('images/icons/phone.png') }}" alt="">
+                        <img class="w-4 h-4" src="{{ asset('images/icons/phone.webp') }}" alt="">
                         <span> {{ $address->phone }}</span>
                     </div>
                     <div class="text-xs text-gray-600 leading-relaxed pt-1">
                         {{ $address->address }}
                     </div>
                     <div class="flex items-center gap-2 text-gray-500 text-xs pt-1">
-                        <img class="w-4 h-4" src="{{ asset('images/icons/order.png') }}" alt="">
+                        <img class="w-4 h-4" src="{{ asset('images/icons/order.webp') }}" alt="">
                         <span>کد پستی: {{ $address->postal_code }}</span>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                 <div class="flex gap-3 mt-2 pt-3 border-t border-gray-100">
                     <a href="{{ route('user-address-edit', ['address' => $address->id]) }}"
                         class="flex-1 flex items-center justify-center gap-1 border border-gray-300 hover:bg-gray-50 text-gray-700 py-2 rounded-lg text-xs transition">
-                        <img class="w-4 h-4" src="{{ asset('images/icons/edit.png') }}" alt="">
+                        <img class="w-4 h-4" src="{{ asset('images/icons/edit.webp') }}" alt="">
                         ویرایش
                     </a>
                     <form action="{{ route('user-address-destroy', ['address' => $address->id]) }}" method="POST"
@@ -81,7 +81,7 @@
                         @csrf
                         @method('DELETE')
                         <button type="button" class="delete-btn" data-title="{{ $address->title }}">
-                            <img class="w-4 h-4" src="{{ asset('images/icons/delete.png') }}" alt="">
+                            <img class="w-4 h-4" src="{{ asset('images/icons/delete.webp') }}" alt="">
                             <p class="text-gray-500"> حذف</p>
                         </button>
                     </form>

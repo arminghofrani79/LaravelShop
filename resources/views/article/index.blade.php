@@ -2,8 +2,11 @@
 
 {{-- header --}}
 <header class="bg-cover bg-center bg-no-repeat w-full h-30 flex items-center px-4 md:px-8"
-    style="background-image: url('{{ asset('images/banners/backgroundarticle.png') }}');">
+    style="background-image: url('{{ asset('images/banners/backgroundarticle.webp') }}');">
     <h1 class="font-bold text-2xl text-gray-600 px-4 py-2 rounded-lg">مقالات</h1>
+    <p class="hidden md:block text-gray-500 w-80 text-sm md:text-base max-w-2xl mx-15 leading-relaxed">
+        برای افزایش دانش خود برای انتخاب ساعت مناسب خود مقالات مفیدی برایتان آماده کردیم
+    </p>
 </header>
 {{-- articles --}}
 <article>

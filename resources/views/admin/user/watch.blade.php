@@ -16,7 +16,7 @@
             <div class="flex">
                 <div class="flex"
                     class="w-14 h-14 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 overflow-hidden">
-                    <img src="{{ asset('images/icons/profile.png') }}" class="w-15 h-15" alt="user">
+                    <img src="{{ asset('images/icons/profile.webp') }}" class="w-15 h-15" alt="user">
                 </div>
                 <div>
                     <h2 class="text-xl font-bold text-gray-800">{{ $user->name }} {{ $user->last_name }}</h2>
@@ -28,7 +28,7 @@
                 <a class="text-gray-400 rext-sm" href="{{ route('admin-edit-user', ['user' => $user->id]) }}">ویرایش
                     کاربر
                 </a>
-                <img class="h-4 w-4" src="{{ asset('images/icons/edit.png') }}" alt="">
+                <img class="h-4 w-4" src="{{ asset('images/icons/edit.webp') }}" alt="">
 
             </div>
         </div>
@@ -59,7 +59,7 @@
     {{-- بخش ۲: آدرس‌های کاربر --}}
     <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
         <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
-            <img class="w-4 h-4" src="{{ asset('images/icons/address.png') }}" alt="">
+            <img class="w-4 h-4" src="{{ asset('images/icons/address.webp') }}" alt="">
             آدرس‌ها
         </h3>
 
@@ -91,7 +91,7 @@
     {{-- بخش ۳: سفارش‌های کاربر --}}
     <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
         <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
-            <img class="w-4 h-4" src="{{ asset('images/icons/order.png') }}" alt="">
+            <img class="w-4 h-4" src="{{ asset('images/icons/order.webp') }}" alt="">
 
             سفارش‌ها
         </h3>
