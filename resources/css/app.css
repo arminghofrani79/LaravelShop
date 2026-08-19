@@ -7,3 +7,61 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+.benefits-bar {
+    scrollbar-width: none;
+}
+
+.benefits-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.benefit-item {
+    animation: benefit-enter 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--benefit-delay, 0ms);
+    transition: transform 220ms ease, opacity 220ms ease;
+}
+
+.benefit-item img {
+    transition: transform 220ms ease;
+}
+
+.benefit-item.is-hovered,
+.benefit-item:hover {
+    transform: translateY(-2px);
+}
+
+.benefit-item.is-hovered img,
+.benefit-item:hover img {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+@keyframes benefit-enter {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 639px) {
+    .benefits-bar {
+        scroll-snap-type: x mandatory;
+        overscroll-behavior-inline: contain;
+    }
+
+    .benefit-item {
+        scroll-snap-align: center;
+        min-width: max-content;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .benefit-item {
+        animation: none;
+        transition: none;
+    }
+}
