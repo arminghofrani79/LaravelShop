@@ -1,3 +1,4 @@
+@section('title', 'آدرس‌های من | LaravelShop')
 @include('user.layout.side')
 
 {{-- left col --}}

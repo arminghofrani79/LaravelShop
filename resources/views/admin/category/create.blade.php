@@ -1,3 +1,4 @@
+@section('title', 'افزودن دسته‌بندی | LaravelShop')
 @include('admin.layout.side')
 
 

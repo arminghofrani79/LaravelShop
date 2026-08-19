@@ -1,3 +1,4 @@
+@section('title', 'ورود | LaravelShop')
 @include('layout.header')
 
 {{-- فرض بر این است که این ویو درون یک صفحه کامل یا لایه‌ی `layout` قرار می‌گیرد --}}

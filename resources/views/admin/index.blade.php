@@ -1,3 +1,4 @@
+@section('title', 'داشبورد مدیریت | LaravelShop')
 @include('admin.layout.side')
 
 <!-- left col -->

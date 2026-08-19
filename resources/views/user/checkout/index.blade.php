@@ -1,3 +1,4 @@
+@section('title', 'تکمیل سفارش | LaravelShop')
 @include('layout.header')
 
 <main class="container mx-auto max-w-7xl px-4 py-8">

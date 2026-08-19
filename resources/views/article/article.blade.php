@@ -1,3 +1,4 @@
+@section('title', $article->title . ' | LaravelShop')
 @include('layout.header')
 
 {{-- header --}}

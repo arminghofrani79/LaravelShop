@@ -1,3 +1,4 @@
+@section('title', 'ویرایش پروفایل | LaravelShop')
 @include('user.layout.side')
 <div class="lg:col-span-3 flex flex-col gap-6">
     <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col gap-6">

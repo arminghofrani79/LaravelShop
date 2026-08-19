@@ -1,3 +1,4 @@
+@section('title', 'درباره ما | LaravelShop')
 @include('layout.header')
 {{-- header --}}
 <header class="bg-cover bg-center bg-no-repeat w-full h-30 flex items-center px-4 md:px-8"

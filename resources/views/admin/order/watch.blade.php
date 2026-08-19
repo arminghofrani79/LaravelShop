@@ -1,3 +1,4 @@
+@section('title', 'جزئیات سفارش | LaravelShop')
 @include('admin.layout.side')
 
 <div class="lg:col-span-3 flex flex-col gap-6">

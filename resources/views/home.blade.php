@@ -1,3 +1,4 @@
+@section('title', 'صفحه اصلی | LaravelShop')
 @include('layout.header')
 
 <main class="w-full bg-[#EEEEEE]">

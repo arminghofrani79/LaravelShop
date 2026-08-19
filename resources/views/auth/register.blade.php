@@ -1,3 +1,4 @@
+@section('title', 'ثبت‌نام | LaravelShop')
 @include('layout.header')
 
 <div class="min-h-screen flex items-center justify-center bg-gray-100 py-10 px-4">

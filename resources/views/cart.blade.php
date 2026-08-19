@@ -1,3 +1,4 @@
+@section('title', 'سبد خرید | LaravelShop')
 @include('layout.header')
 
 {{-- header --}}

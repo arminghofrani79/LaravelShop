@@ -1,3 +1,4 @@
+@section('title', 'محصولات | LaravelShop')
 @include('layout.header')
 
 <main>

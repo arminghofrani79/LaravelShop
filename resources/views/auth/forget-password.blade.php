@@ -1,3 +1,4 @@
+@section('title', 'فراموشی رمز عبور | LaravelShop')
 @include('layout.header')
 
 <main class="min-h-screen flex items-center justify-center bg-gray-50 py-10 px-4">
