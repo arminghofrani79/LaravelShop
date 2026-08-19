@@ -16,7 +16,7 @@
         {{-- part1: rec info --}}
         <div class="pb-4 border-b border-gray-100">
             <div class="flex items-center gap-2 mb-4">
-                <img class="w-4 h-4" src="{{ asset('images/icons/profile2.png') }}" alt="">
+                <img class="w-4 h-4" src="{{ asset('images/icons/profile2.webp') }}" alt="">
                 <h2 class="text-base font-bold text-gray-800">اطلاعات گیرنده</h2>
             </div>
 
@@ -60,7 +60,7 @@
         {{-- part2: address info --}}
         <div class="pb-4 border-b border-gray-100">
             <div class="flex items-center gap-2 mb-4">
-                <img class="w-4 h-4" src="{{ asset('images/icons/location.png') }}" alt="">
+                <img class="w-4 h-4" src="{{ asset('images/icons/location.webp') }}" alt="">
                 <h2 class="text-base font-bold text-gray-800">اطلاعات آدرس</h2>
             </div>
 
@@ -123,7 +123,7 @@
         {{-- settings --}}
         <div class="flex items-center justify-between py-2">
             <div class="flex items-center gap-2">
-                <img class="w-4 h-4" src="{{ asset('images/icons/status.png') }}" alt="">
+                <img class="w-4 h-4" src="{{ asset('images/icons/status.webp') }}" alt="">
                 <span class="text-sm font-medium text-gray-700">پیش‌فرض</span>
             </div>
 

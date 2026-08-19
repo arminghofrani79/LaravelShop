@@ -14,17 +14,17 @@
         class="flex flex-wrap items-center justify-center sm:justify-between gap-4 sm:gap-6 w-full bg-gray-300 px-4 py-3">
 
         <div class="flex items-center gap-2">
-            <img class="w-5 h-5 object-contain" src="{{ asset('images/icons/garanti.png') }}" alt="تضمین اصالت">
+            <img class="w-5 h-5 object-contain" src="{{ asset('images/icons/garanti.webp') }}" alt="تضمین اصالت">
             <p class="text-sm text-gray-700 font-medium">تضمین اصالت کالا</p>
         </div>
 
         <div class="flex items-center gap-2">
-            <img class="w-5 h-5 object-contain" src="{{ asset('images/icons/send.png') }}" alt="ارسال رایگان">
+            <img class="w-5 h-5 object-contain" src="{{ asset('images/icons/send.webp') }}" alt="ارسال رایگان">
             <p class="text-sm text-gray-700 font-medium">ارسال رایگان برای سفارشات بالای ۲۰ میلیون تومان</p>
         </div>
 
         <div class="flex items-center gap-2">
-            <img class="w-5 h-5 object-contain" src="{{ asset('images/icons/support.png') }}" alt="پشتیبانی ۲۴ ساعته">
+            <img class="w-5 h-5 object-contain" src="{{ asset('images/icons/support.webp') }}" alt="پشتیبانی ۲۴ ساعته">
             <p class="text-sm text-gray-700 font-medium">پشتیبانی ۲۴ ساعته</p>
         </div>
 
@@ -34,7 +34,7 @@
 
         <div class="max-w-9xl mx-auto flex items-center justify-between">
 
-            <img class="h-20 w-auto object-contain flex-shrink-0" src="{{ asset('images/logo/brand.png') }}"
+            <img class="h-15 w-auto object-contain flex-shrink-0" src="{{ asset('images/logo/brand.webp') }}"
                 alt="لوگو فروشگاه">
 
             <nav class="hidden md:flex items-center space-x-8 w-100 justify-between">
@@ -56,7 +56,7 @@
                 <form action="{{ route('products') }}" method="GET"
                     class="flex items-center border-2 border-gray-300 rounded-lg bg-gray-100  h-10 max-w-xs md:max-w-sm lg:max-w-md focus-within:border-blue-500 transition-all duration-200">
                     <button type="submit" class="cursor-pointer">
-                        <img class="w-5 h-5 object-contain opacity-60" src="{{ asset('images/icons/search.png') }}"
+                        <img class="w-5 h-5 object-contain opacity-60" src="{{ asset('images/icons/search.webp') }}"
                             alt="">
                     </button>
                     <input
@@ -78,17 +78,17 @@
                             class="flex justify-center items-center text-white px-1
                             py-1 rounded-lg hover:bg-gray-700 transition cursor-pointer"
                             title="پنل مدیریت">
-                            <img src="{{ asset('images/icons/admin.png') }}" alt="ادمین" class="w-4 h-4">
+                            <img src="{{ asset('images/icons/admin.webp') }}" alt="ادمین" class="w-4 h-4">
                         </a>
                     @endif
                     {{-- profile button --}}
                     <a href="{{ route('user-profile') }}"
                         class="flex justify-center items-center text-white px-1 py-1 rounded-lg hover:bg-gray-700 transition cursor-pointer">
-                        <img class="w-4 h-4" src="{{ asset('images/icons/profile2.png') }}" alt="پروفایل">
+                        <img class="w-4 h-4" src="{{ asset('images/icons/profile2.webp') }}" alt="پروفایل">
                     </a>
                     <a href="{{ route('cart') }}"
                         class="flex justify-center items-center text-white px-1 py-1 rounded-lg hover:bg-gray-700 transition cursor-pointer">
-                        <img class="w-4 h-4" src="{{ asset('images/icons/buy.png') }}" alt="سبد خرید">
+                        <img class="w-4 h-4" src="{{ asset('images/icons/buy.webp') }}" alt="سبد خرید">
                     </a>
 
                     {{-- exit button --}}
@@ -96,7 +96,7 @@
                         <form action="{{ route('logout') }}" method="POST" class="m-0 p-0">
                             @csrf
                             <button type="submit" class="flex items-center justify-center px-1 py-1 w-full h-full">
-                                <img class="w-4 h-4" src="{{ asset('images/icons/exit.png') }}" alt="خروج">
+                                <img class="w-4 h-4" src="{{ asset('images/icons/exit.webp') }}" alt="خروج">
                             </button>
                         </form>
                     </div>

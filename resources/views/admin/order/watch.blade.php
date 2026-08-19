@@ -18,7 +18,7 @@
                 <span class="block text-sm font-bold text-gray-800">{{ $order->order_number }}</span>
             </div>
             <div class="w-8 h-8 bg-gray-50 rounded-full flex items-center justify-center text-blue-600">
-                <img class="h-4 w-4" src="{{ asset('images/icons/search.png') }}" alt="">
+                <img class="h-4 w-4" src="{{ asset('images/icons/search.webp') }}" alt="">
             </div>
         </div>
 
@@ -29,7 +29,7 @@
                 <span class="block text-sm font-bold text-gray-800">{{ $order->user->name }}</span>
             </div>
             <div class="w-8 h-8 bg-gray-50 rounded-full flex items-center justify-center text-blue-600">
-                <img class="h-4 w-4" src="{{ asset('images/icons/eye.png') }}" alt="">
+                <img class="h-4 w-4" src="{{ asset('images/icons/eye.webp') }}" alt="">
             </div>
         </div>
 
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="w-8 h-8 bg-gray-50 rounded-full flex items-center justify-center text-blue-600">
-                <img class="h-4 w-4" src="{{ asset('images/icons/calendar.png') }}" alt="">
+                <img class="h-4 w-4" src="{{ asset('images/icons/calendar.webp') }}" alt="">
             </div>
         </div>
 
@@ -55,7 +55,7 @@
                     تومان</span>
             </div>
             <div class="w-8 h-8 bg-gray-50 rounded-full flex items-center justify-center text-blue-600">
-                <img class="h-4 w-4" src="{{ asset('images/icons/money.png') }}" alt="">
+                <img class="h-4 w-4" src="{{ asset('images/icons/money.webp') }}" alt="">
             </div>
         </div>
 
@@ -69,7 +69,7 @@
                 </div>
             </div>
             <div class="w-8 h-8 bg-gray-50 rounded-full flex items-center justify-center text-blue-600">
-                <img class="h-4 w-4" src="{{ asset('images/icons/clock.png') }}" alt="">
+                <img class="h-4 w-4" src="{{ asset('images/icons/clock.webp') }}" alt="">
             </div>
         </div>
     </div>
@@ -80,7 +80,7 @@
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 flex flex-col gap-4">
             <div class="flex items-center justify-between pb-3 border-b border-gray-100">
                 <h3 class="font-bold text-gray-800 text-sm flex items-center gap-2">
-                    <img class="h-4 w-4" src="{{ asset('images/icons/status.png') }}" alt="">
+                    <img class="h-4 w-4" src="{{ asset('images/icons/status.webp') }}" alt="">
                     مدیریت وضعیت سفارش
                 </h3>
             </div>
@@ -129,7 +129,7 @@
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 flex flex-col gap-4">
             <div class="flex items-center gap-2 pb-3 border-b border-gray-100">
                 <h3 class="font-bold text-gray-800 text-sm flex items-center gap-2">
-                    <img class="h-4 w-4" src="{{ asset('images/icons/like.png') }}" alt="">
+                    <img class="h-4 w-4" src="{{ asset('images/icons/like.webp') }}" alt="">
                     اقدامات سفارش
                 </h3>
             </div>
@@ -162,7 +162,7 @@
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 flex flex-col gap-4">
             <div class="flex items-center gap-2 pb-3 border-b border-gray-100">
                 <h3 class="font-bold text-gray-800 text-sm flex items-center gap-2">
-                    <img class="h-4 w-4" src="{{ asset('images/icons/profile2.png') }}" alt="">
+                    <img class="h-4 w-4" src="{{ asset('images/icons/profile2.webp') }}" alt="">
                     اطلاعات مشتری
                 </h3>
             </div>
@@ -196,7 +196,7 @@
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 flex flex-col gap-4">
             <div class="flex items-center gap-2 pb-3 border-b border-gray-100">
                 <h3 class="font-bold text-gray-800 text-sm flex items-center gap-2">
-                    <img class="h-4 w-4" src="{{ asset('images/icons/location.png') }}" alt="">
+                    <img class="h-4 w-4" src="{{ asset('images/icons/location.webp') }}" alt="">
                     آدرس ارسال
                 </h3>
             </div>
@@ -236,7 +236,7 @@
     <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 overflow-x-auto">
         <div class="flex items-center justify-between pb-4 mb-4 border-b border-gray-100">
             <h3 class="font-bold text-gray-800 text-sm flex items-center gap-2">
-                <img class="h-4 w-4" src="{{ asset('images/icons/order.png') }}" alt="">
+                <img class="h-4 w-4" src="{{ asset('images/icons/order.webp') }}" alt="">
                 محصولات سفارش
             </h3>
         </div>

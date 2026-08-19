@@ -19,7 +19,7 @@
 
             <div class="bg-white rounded-xl shadow-sm p-6">
                 <h2 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
-                    <img class="w-4 h-4" src="{{ asset('images/icons/location.png') }}" alt="">
+                    <img class="w-4 h-4" src="{{ asset('images/icons/location.webp') }}" alt="">
                     انتخاب آدرس ارسال
                 </h2>
 
@@ -67,7 +67,7 @@
 
             <div class="bg-white rounded-xl shadow-sm p-6 sticky top-6">
                 <h2 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
-                    <img class="w-4 h-4" src="{{ asset('images/icons/order.png') }}" alt="">
+                    <img class="w-4 h-4" src="{{ asset('images/icons/order.webp') }}" alt="">
                     خلاصه سفارش
                 </h2>
 
@@ -96,7 +96,7 @@
 
                 <button type="submit"
                     class="w-full bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-4 rounded-lg mt-6 transition shadow-md hover:shadow-lg flex items-center justify-center gap-2">
-                    <img class="w-4 h-4" src="{{ asset('images/icons/buy.png') }}" alt="">
+                    <img class="w-4 h-4" src="{{ asset('images/icons/buy.webp') }}" alt="">
                     پرداخت و تکمیل سفارش
                 </button>
 

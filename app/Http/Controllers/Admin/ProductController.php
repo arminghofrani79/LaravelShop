@@ -38,12 +38,12 @@ class ProductController extends Controller
             'discount' => 'nullable|numeric',
             'stock' => 'required',
             'description' => 'required|min:10|max:2000',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image|mimes:webp|max:2048',
             'status' => 'required',
             'is_featured' => 'nullable',
             'category_id' => 'required'
         ]);
-        $filename = time() . '-' . $request->image->getClientOriginalName();
+        $filename = time() . '-' . pathinfo($request->image->getClientOriginalName(), PATHINFO_FILENAME) . '.webp';
         $request->image->storeAs('images/products', $filename, 'public');
         Product::create([
             'name' => $request->name,
@@ -82,12 +82,12 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $request->validate([
-            'name' => 'required|min:6|max:30',
+            'name' => 'required|min:6|max:100',
             'price' => 'required|numeric',
             'discount' => 'nullable|numeric',
             'stock' => 'required',
-            'description' => 'required|min:10|max:200',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // تغییر به nullable
+            'description' => 'required|min:10|max:2000',
+            'image' => 'nullable|image|mimes:webp|max:2048', // تغییر به nullable
             'status' => 'required',
             'is_featured' => 'nullable',
             'category_id' => 'required'
@@ -95,7 +95,7 @@ class ProductController extends Controller
         $filename = $product->image;
 
         if ($request->hasFile('image')) {
-            $filename = time() . '-' . $request->image->getClientOriginalName();
+            $filename = time() . '-' . pathinfo($request->image->getClientOriginalName(), PATHINFO_FILENAME) . '.webp';
 
             $request->image->storeAs(
                 'images/products',

@@ -8,15 +8,15 @@
         <a href="{{ route('products') }}" class="cursor-pointer">
             <div
                 class="banner-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100">
-                <img src="{{ asset('images/banners/banner1.png') }}" class="w-full h-full object-cover" alt="بنر ۱">
+                <img src="{{ asset('images/banners/banner1.webp') }}" class="w-full h-full object-cover" alt="بنر ۱">
             </div>
             <div
                 class="banner-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0">
-                <img src="{{ asset('images/banners/banner2.png') }}" class="w-full h-full object-cover" alt="بنر ۲">
+                <img src="{{ asset('images/banners/banner2.webp') }}" class="w-full h-full object-cover" alt="بنر ۲">
             </div>
             <div
                 class="banner-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0">
-                <img src="{{ asset('images/banners/banner3.png') }}" class="w-full h-full object-cover" alt="بنر ۳">
+                <img src="{{ asset('images/banners/banner3.webp') }}" class="w-full h-full object-cover" alt="بنر ۳">
             </div>
         </a>
 
@@ -43,7 +43,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             <div
                 class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-100 transition-all duration-200 cursor-default">
-                <img class="w-10 h-10 object-contain" src="{{ asset('images/icons/send.png') }}" alt="ارسال سریع">
+                <img class="w-10 h-10 object-contain" src="{{ asset('images/icons/send.webp') }}" alt="ارسال سریع">
                 <div>
                     <span class="font-bold text-gray-800 text-sm">ارسال سریع</span>
                     <p class="text-gray-400 text-xs">ارسال به سراسر کشور</p>
@@ -51,7 +51,7 @@
             </div>
             <div
                 class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-100 transition-all duration-200 cursor-default">
-                <img class="w-10 h-10 object-contain" src="{{ asset('images/icons/garanti.png') }}" alt="ضمانت کیفیت">
+                <img class="w-10 h-10 object-contain" src="{{ asset('images/icons/garanti.webp') }}" alt="ضمانت کیفیت">
                 <div>
                     <span class="font-bold text-gray-800 text-sm">ضمانت کیفیت</span>
                     <p class="text-gray-400 text-xs">گارانتی ۲۴ ماهه</p>
@@ -59,7 +59,7 @@
             </div>
             <div
                 class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-100 transition-all duration-200 cursor-default">
-                <img class="w-10 h-10 object-contain" src="{{ asset('images/icons/support.png') }}" alt="پشتیبانی">
+                <img class="w-10 h-10 object-contain" src="{{ asset('images/icons/support.webp') }}" alt="پشتیبانی">
                 <div>
                     <span class="font-bold text-gray-800 text-sm">پشتیبانی حرفه‌ای</span>
                     <p class="text-gray-400 text-xs">پاسخگوی شما هستیم</p>
@@ -67,7 +67,7 @@
             </div>
             <div
                 class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-100 transition-all duration-200 cursor-default">
-                <img class="w-10 h-10 object-contain" src="{{ asset('images/icons/credit.png') }}" alt="پرداخت امن">
+                <img class="w-10 h-10 object-contain" src="{{ asset('images/icons/credit.webp') }}" alt="پرداخت امن">
                 <div>
                     <span class="font-bold text-gray-800 text-sm">پرداخت امن</span>
                     <p class="text-gray-400 text-xs">پرداخت اینترنتی امن</p>
@@ -90,9 +90,9 @@
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-6">
             @php
                 $randomImages = [
-                    asset('images/categories/image1.jpeg'),
-                    asset('images/categories/image2.jpeg'),
-                    asset('images/categories/image3.jpeg'),
+                    asset('images/categories/image1.webp'),
+                    asset('images/categories/image2.webp'),
+                    asset('images/categories/image3.webp'),
                 ];
             @endphp
             @foreach ($categories as $category)
@@ -175,7 +175,7 @@
                 </div>
             </div>
             <div class="w-full md:w-2/5 h-56 md:h-auto min-h-[200px] flex-shrink-0">
-                <img class="w-full h-full object-cover" src="{{ asset('images/banners/offer.png') }}"
+                <img class="w-full h-full object-cover" src="{{ asset('images/banners/offer.webp') }}"
                     alt="تخفیف ویژه">
             </div>
         </div>

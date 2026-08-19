@@ -2,8 +2,11 @@
 
 <main>
     <header class="bg-cover bg-center bg-no-repeat w-full h-30 flex items-center px-4 md:px-8"
-        style="background-image: url('{{ asset('images/banners/backgroundproduct.png') }}');">
+        style="background-image: url('{{ asset('images/banners/backgroundproduct.webp') }}');">
         <h1 class="font-bold text-2xl text-gray-600 px-4 py-2 rounded-lg">محصولات</h1>
+        <p class="hidden md:block text-gray-500 w-80 text-sm md:text-base max-w-2xl mx-15 leading-relaxed">
+            کیفیت، زیبایی و اصالت ساعت خودرا از ما هدیه بگیرید
+        </p>
     </header>
 
     <div class="flex flex-col md:flex-row gap-6 px-4 md:px-8 py-6">
@@ -14,7 +17,7 @@
                 @foreach ($categories as $category)
                     <a href="{{ route('products', ['category' => $category->id]) }}"
                         class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition-colors">
-                        <img class="rounded-md w-6 h-6 object-contain" src="{{ asset('images/icons/watch.png') }}"
+                        <img class="rounded-md w-6 h-6 object-contain" src="{{ asset('images/icons/watch.webp') }}"
                             alt="ساعت ">
                         <span class="text-sm text-gray-700">{{ $category->name }}</span>
                     </a>
@@ -79,8 +82,7 @@
                 </h2>
 
                 <label class="flex items-center gap-2 cursor-pointer">
-                    <input type="checkbox" name="in_stock" value="1"
-                     {{ request('in_stock') ? 'checked' : '' }}>
+                    <input type="checkbox" name="in_stock" value="1" {{ request('in_stock') ? 'checked' : '' }}>
 
                     <span class="text-sm text-gray-700">
                         فقط محصولات موجود
@@ -141,7 +143,7 @@
                             <button
                                 class="flex items-center justify-center gap-2 w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-2.5 px-4 rounded-lg transition-all duration-200 mt-3 shadow-md hover:shadow-lg">
                                 <img class="w-5 h-5 object-contain filter brightness-0 invert"
-                                    src="{{ asset('images/icons/buy.png') }}" alt="افزودن به سبد خرید">
+                                    src="{{ asset('images/icons/buy.webp') }}" alt="افزودن به سبد خرید">
 
                                 افزودن به سبد خرید
                             </button>

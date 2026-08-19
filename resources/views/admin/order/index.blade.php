@@ -79,7 +79,7 @@
             <!-- search -->
             <div class="relative w-full md:w-72">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <img class="w-4 h-4" src="{{ asset('images/icons/search.png') }}" alt="">
+                    <img class="w-4 h-4" src="{{ asset('images/icons/search.webp') }}" alt="">
                 </div>
                 <input type="text" placeholder="جستجو برای شماره سفارش، مشتری..."
                     class="block w-full pl-10 pr-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -99,7 +99,7 @@
         <!-- button search filter-->
         <button
             class="w-full md:w-auto bg-gray-600 hover:bg-gray-700 text-white px-5 py-2.5 rounded-lg text-sm flex items-center justify-center gap-2 transition shadow-sm">
-            <img class="w-4 h-4" src="{{ asset('images/icons/order.png') }}" alt="">
+            <img class="w-4 h-4" src="{{ asset('images/icons/order.webp') }}" alt="">
             جزئیات سفارشات
         </button>
     </div>
@@ -169,7 +169,7 @@
                                 <a href="{{ route('admin-watch-order', ['order' => $order->id]) }}"
                                     class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-500 hover:bg-gray-50 rounded-lg transition">
 
-                                    <img class="h-4 w-4" src="{{ asset('images/icons/eye.png') }}" alt="">
+                                    <img class="h-4 w-4" src="{{ asset('images/icons/eye.webp') }}" alt="">
                                 </a>
                             </div>
                         </td>

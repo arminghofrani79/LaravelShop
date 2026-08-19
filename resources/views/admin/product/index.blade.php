@@ -10,7 +10,7 @@
             <!-- search -->
             <div class="relative w-full md:w-64">
                 <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                    <img class="w-4 h-4" src="{{ asset('images/icons/search.png') }}" alt="">
+                    <img class="w-4 h-4" src="{{ asset('images/icons/search.webp') }}" alt="">
                 </div>
                 <input type="text" placeholder="جستجو برای نام محصول..."
                     class="block w-full pr-10 pl-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -73,7 +73,7 @@
                         <td class="py-4 text-center flex justify-center gap-2">
                             <a href="{{ route('admin-edit-product', ['product' => $product->id]) }}"
                                 class="w-8 h-8 flex items-center justify-center border border-blue-100 text-blue-600 hover:bg-blue-50 rounded-lg transition">
-                                <img class="h-4 w-4" src="{{ asset('images/icons/edit.png') }}" alt="">
+                                <img class="h-4 w-4" src="{{ asset('images/icons/edit.webp') }}" alt="">
                             </a>
 
                             <form method="POST"
@@ -81,7 +81,7 @@
                                 class="w-8 h-8 flex items-center justify-center border border-red-100 text-red-500 hover:bg-red-50 rounded-lg transition">
                                 @csrf @method('DELETE')
                                 <button type="button" class="delete-btn" data-title="{{ $product->name }}">
-                                    <img class="h-4 w-4" src="{{ asset('images/icons/delete.png') }}"
+                                    <img class="h-4 w-4" src="{{ asset('images/icons/delete.webp') }}"
                                         alt=""></button>
                             </form>
                         </td>

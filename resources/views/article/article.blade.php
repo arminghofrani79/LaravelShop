@@ -2,7 +2,7 @@
 
 {{-- header --}}
 <header class="bg-cover bg-center bg-no-repeat w-full h-30 flex items-center px-4 md:px-8"
-    style="background-image: url('{{ asset('images/banners/backgroundarticle.png') }}');">
+    style="background-image: url('{{ asset('images/banners/backgroundarticle.webp') }}');">
     <h1 class="font-bold text-2xl text-gray-600 px-4 py-2 rounded-lg">مقاله</h1>
 </header>
 {{-- article --}}
@@ -24,11 +24,11 @@
     <!-- metadata -->
     <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500 border-b border-gray-200 pb-6 mb-6">
         <div class="flex items-center gap-2">
-            <img class="w-4 h-4" src="{{ asset('images/icons/profile2.png') }}" alt="">
+            <img class="w-4 h-4" src="{{ asset('images/icons/profile2.webp') }}" alt="">
             <span>نویسنده: آرمین غفرانی</span>
         </div>
         <div class="flex items-center gap-2">
-            <img class="w-4 h-4" src="{{ asset('images/icons/calendar.png') }}" alt="">
+            <img class="w-4 h-4" src="{{ asset('images/icons/calendar.webp') }}" alt="">
             <span>{{ $article->created_at }}</span>
         </div>
     </div>
