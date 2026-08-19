@@ -20,7 +20,11 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!isMobileBenefits() || benefitsBar.matches(':hover')) return;
 
             activeBenefit = (activeBenefit + 1) % benefits.length;
-            benefits[activeBenefit].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            const benefit = benefits[activeBenefit];
+            const targetScroll = benefit.offsetLeft - (benefitsBar.clientWidth - benefit.offsetWidth) / 2;
+
+            // Keep the automatic animation horizontal; scrollIntoView can move the whole page vertically.
+            benefitsBar.scrollTo({ left: targetScroll, behavior: 'smooth' });
         };
 
         const startBenefitsRotation = () => {
@@ -157,3 +161,48 @@ prevButton.addEventListener('click', prevSlide);
 
     setInterval(nextSlide, 3000);
 }
+
+//categorymenu
+    const wrapper = document.getElementById('categoryMenuWrapper');
+    const dropdown = document.getElementById('categoryDropdown');
+    const button = document.getElementById('categoryMenuButton');
+
+    function openCategoryMenu() {
+        dropdown.classList.remove(
+            'invisible',
+            'opacity-0',
+            'translate-y-2'
+        );
+
+        dropdown.classList.add(
+            'visible',
+            'opacity-100',
+            'translate-y-0'
+        );
+    }
+
+    function closeCategoryMenu() {
+        dropdown.classList.remove(
+            'visible',
+            'opacity-100',
+            'translate-y-0'
+        );
+
+        dropdown.classList.add(
+            'invisible',
+            'opacity-0',
+            'translate-y-2'
+        );
+    }
+
+    wrapper.addEventListener('mouseenter', openCategoryMenu);
+    wrapper.addEventListener('mouseleave', closeCategoryMenu);
+
+    // برای موبایل و تبلت
+    button.addEventListener('click', function () {
+        if (dropdown.classList.contains('invisible')) {
+            openCategoryMenu();
+        } else {
+            closeCategoryMenu();
+        }
+    });

@@ -1,36 +1,39 @@
 @include('layout.header')
 
-<main class="w-full">
+<main class="w-full bg-[#EEEEEE]">
 
     {{-- Hero Banner --}}
-    <div class="relative w-full h-[500px] overflow-hidden">
+    <div class="hero-banner isolate relative h-[230px] w-full overflow-hidden sm:h-[340px] lg:h-[500px]">
         {{-- اسلایدها --}}
         <a href="{{ route('products') }}" class="cursor-pointer">
             <div
-                class="banner-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100">
-                <img src="{{ asset('images/banners/banner1.webp') }}" class="w-full h-full object-cover" alt="بنر ۱">
+                class="banner-slide object-center absolute inset-0 h-full w-full object-cover opacity-100 transition-opacity duration-700">
+                <img src="{{ asset('images/banners/banner1.webp') }}" class="hero-banner-image h-full w-full object-cover"
+                    alt="بنر ۱">
             </div>
             <div
-                class="banner-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0">
-                <img src="{{ asset('images/banners/banner2.webp') }}" class="w-full h-full object-cover" alt="بنر ۲">
+                class="banner-slide object-center absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700">
+                <img src="{{ asset('images/banners/banner2.webp') }}"
+                    class="hero-banner-image h-full w-full object-cover" alt="بنر ۲">
             </div>
             <div
-                class="banner-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0">
-                <img src="{{ asset('images/banners/banner3.webp') }}" class="w-full h-full object-cover" alt="بنر ۳">
+                class="banner-slide object-center absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700">
+                <img src="{{ asset('images/banners/banner3.webp') }}"
+                    class="hero-banner-image h-full w-full object-cover" alt="بنر ۳">
             </div>
         </a>
 
 
         {{-- دکمه‌های قبلی/بعدی --}}
         <button id="prevBanner"
-            class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 p-2 rounded-full shadow-md z-10 transition">
+            class="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-[#393E46]/90 p-1.5 text-[#EEEEEE] shadow-md transition hover:bg-[#00ADB5] sm:left-4 sm:p-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
         </button>
         <button id="nextBanner"
-            class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 p-2 rounded-full shadow-md z-10 transition">
+            class="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-[#393E46]/90 p-1.5 text-[#EEEEEE] shadow-md transition hover:bg-[#00ADB5] sm:right-4 sm:p-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -39,94 +42,167 @@
     </div>
 
     {{-- Benefits Section --}}
-    <section class="max-w-7xl mx-auto px-4 py-10">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            <div
-                class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-100 transition-all duration-200 cursor-default">
-                <img class="w-10 h-10 object-contain" src="{{ asset('images/icons/send.webp') }}" alt="ارسال سریع">
-                <div>
-                    <span class="font-bold text-gray-800 text-sm">ارسال سریع</span>
-                    <p class="text-gray-400 text-xs">ارسال به سراسر کشور</p>
+    <section class="bg-[#EEEEEE] px-4 py-6 sm:py-8">
+        <div class="mx-auto max-w-7xl">
+            <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-4 lg:grid-cols-4">
+                <div
+                    class="flex items-center gap-5 rounded-xl bg-[#393E46] p-1 transition-all duration-200 hover:-translate-y-1 hover:bg-[#393E46]/90 cursor-default border-[#393E46]">
+                    <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#00ADB5]/15">
+                        <img class="bg-[#00ADB5] rounded-2xl h-10 w-10 object-contain"
+                            src="{{ asset('images/icons/send.webp') }}" alt="ارسال سریع">
+                    </span>
+                    <div class="flex flex-col gap-1.5">
+                        <span class="text-sm font-bold text-[#EEEEEE]">ارسال سریع</span>
+                        <p class="text-xs text-[#EEEEEE]/70">ارسال به سراسر کشور</p>
+                    </div>
                 </div>
-            </div>
-            <div
-                class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-100 transition-all duration-200 cursor-default">
-                <img class="w-10 h-10 object-contain" src="{{ asset('images/icons/garanti.webp') }}" alt="ضمانت کیفیت">
-                <div>
-                    <span class="font-bold text-gray-800 text-sm">ضمانت کیفیت</span>
-                    <p class="text-gray-400 text-xs">گارانتی ۲۴ ماهه</p>
+                <div
+                    class="flex items-center gap-5 rounded-xl bg-[#393E46] p-1 transition-all duration-200 hover:-translate-y-1 hover:bg-[#393E46]/90 cursor-default">
+                    <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#00ADB5]/15">
+                        <img class="bg-[#00ADB5] rounded-2xl h-10 w-10 object-contain"
+                            src="{{ asset('images/icons/garanti.webp') }}" alt="ضمانت کیفیت">
+                    </span>
+                    <div class="flex flex-col gap-1.5">
+                        <span class="text-sm font-bold text-[#EEEEEE]">ضمانت کیفیت</span>
+                        <p class="text-xs text-[#EEEEEE]/70">گارانتی ۲۴ ماهه</p>
+                    </div>
                 </div>
-            </div>
-            <div
-                class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-100 transition-all duration-200 cursor-default">
-                <img class="w-10 h-10 object-contain" src="{{ asset('images/icons/support.webp') }}" alt="پشتیبانی">
-                <div>
-                    <span class="font-bold text-gray-800 text-sm">پشتیبانی حرفه‌ای</span>
-                    <p class="text-gray-400 text-xs">پاسخگوی شما هستیم</p>
+                <div
+                    class="flex items-center gap-5 rounded-xl bg-[#393E46] p-1 transition-all duration-200 hover:-translate-y-1 hover:bg-[#393E46]/90 cursor-default">
+                    <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#00ADB5]/15">
+                        <img class="bg-[#00ADB5] rounded-2xl h-10 w-10 object-contain"
+                            src="{{ asset('images/icons/support.webp') }}" alt="پشتیبانی">
+                    </span>
+                    <div class="flex flex-col gap-1.5">
+                        <span class="text-sm font-bold text-[#EEEEEE]">پشتیبانی حرفه‌ای</span>
+                        <p class="text-xs text-[#EEEEEE]/70">پاسخگوی شما هستیم</p>
+                    </div>
                 </div>
-            </div>
-            <div
-                class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-100 transition-all duration-200 cursor-default">
-                <img class="w-10 h-10 object-contain" src="{{ asset('images/icons/credit.webp') }}" alt="پرداخت امن">
-                <div>
-                    <span class="font-bold text-gray-800 text-sm">پرداخت امن</span>
-                    <p class="text-gray-400 text-xs">پرداخت اینترنتی امن</p>
+                <div
+                    class="flex items-center gap-5 rounded-xl bg-[#393E46] p-1 transition-all duration-200 hover:-translate-y-1 hover:bg-[#393E46]/90 cursor-default">
+                    <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#00ADB5]/15">
+                        <img class="bg-[#00ADB5] rounded-2xl h-10 w-10 object-contain"
+                            src="{{ asset('images/icons/credit.webp') }}" alt="پرداخت امن">
+                    </span>
+                    <div class="flex flex-col gap-1.5">
+                        <span class="text-sm font-bold text-[#EEEEEE]">پرداخت امن</span>
+                        <p class="text-xs text-[#EEEEEE]/70">پرداخت اینترنتی امن</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     {{-- Categories Section --}}
-    <section class="max-w-7xl mx-auto px-4 py-6">
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="text-xl font-bold text-gray-800">دسته‌بندی‌های محبوب</h2>
-            <a href="{{ route('products') }}" class="text-blue-500 flex items-center gap-1 text-sm hover:underline">
+    <section class="mx-auto max-w-7xl px-4 py-8 sm:py-10">
+
+        {{-- Header --}}
+        <div class="mb-5 flex items-center justify-between sm:mb-7">
+            <h2 class="border-b-2 border-[#00ADB5] pb-2 text-xl font-bold text-[#222831] sm:text-2xl">
+                دسته‌بندی‌های محبوب
+            </h2>
+
+            <a href="{{ route('products') }}"
+                class="group flex items-center gap-1 text-sm font-medium text-[#00ADB5] transition hover:text-[#393E46]">
+
                 مشاهده دسته‌بندی‌ها
-                <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+                <svg class="h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-1" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
             </a>
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-6">
-            @php
-                $randomImages = [
-                    asset('images/categories/image1.webp'),
-                    asset('images/categories/image2.webp'),
-                    asset('images/categories/image3.webp'),
-                ];
-            @endphp
+
+
+        @php
+            $randomImages = [
+                asset('images/categories/image1.webp'),
+                asset('images/categories/image2.webp'),
+                asset('images/categories/image3.webp'),
+                asset('images/categories/image4.webp'),
+            ];
+        @endphp
+
+
+        {{-- Categories --}}
+        <div class="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
             @foreach ($categories as $category)
-                <div
-                    class="flex flex-col items-center justify-center bg-gray-100 rounded-xl p-4 h-44 hover:bg-gray-200 hover:scale-105 transition-all duration-200 cursor-pointer border border-gray-200/50">
-                    <img class="w-20 h-20 object-contain mb-2" src="{{ $randomImages[$loop->index % 3] }}"
-                        alt="{{ $category->name }}">
-                    <p class="text-sm font-medium text-gray-700">{{ $category->name }}</p>
-                </div>
+                <a href="{{ route('products') }}"
+                    class="group overflow-hidden rounded-2xl border border-[#393E46]/15 bg-gray-50
+                       shadow-sm transition-all duration-300
+                       hover:-translate-y-1
+                       hover:border-[#00ADB5]/40
+                       hover:shadow-xl">
+
+                    {{-- Image --}}
+                    <div class="aspect-[4/3] w-full overflow-hidden bg-[#EEEEEE]">
+
+                        <img src="{{ $randomImages[$loop->index % 4] }}" alt="{{ $category->name }}" loading="lazy"
+                            class="h-full w-full object-cover
+                               transition-transform duration-500
+                               group-hover:scale-105">
+                    </div>
+
+
+                    {{-- Content --}}
+                    <div class="p-4">
+
+                        <h3 class="mb-2 text-base font-bold text-[#222831] sm:text-lg">
+                            {{ $category->name }}
+                        </h3>
+
+                        <div
+                            class="flex items-center gap-1 text-xs font-medium text-[#393E46]
+                               transition-colors group-hover:text-[#00ADB5] sm:text-sm">
+
+                            مشاهده محصولات
+
+                            <svg class="h-4 w-4 rotate-180 transition-transform duration-300 group-hover:-translate-x-1"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+
+                    </div>
+
+                </a>
             @endforeach
+
         </div>
+
     </section>
 
     {{-- Featured Products --}}
-    <section class="max-w-7xl mx-auto px-4 py-6">
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="text-xl font-bold text-gray-800">جدیدترین محصولات</h2>
-            <a href="{{ route('products') }}" class="text-blue-500 flex items-center gap-1 text-sm hover:underline">
+    <section class="mx-auto max-w-7xl px-4 py-7 sm:py-9">
+        <div class="mb-4 flex items-center justify-between sm:mb-6">
+            <h2 class="border-b-2 border-[#00ADB5] pb-2 text-xl font-bold text-[#222831]">جدیدترین محصولات</h2>
+            <a href="{{ route('products') }}" class="flex items-center gap-1 text-sm text-[#00ADB5] hover:underline">
                 مشاهده همه محصولات
                 <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
             </a>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div class="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
             @foreach ($products as $product)
                 <div
-                    class="flex flex-col items-center justify-between bg-white rounded-xl p-4 h-[320px] hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer border border-gray-100/80">
-                    <img class="w-full h-32 object-contain rounded-lg"
-                        src="{{ asset('storage/images/products/' . $product->image) }}" alt="{{ $product->name }}">
-                    <h3 class="text-sm font-bold text-gray-800 text-center line-clamp-2 mt-2">{{ $product->name }}</h3>
-                    <p class="text-blue-600 font-bold text-lg mt-1">{{ number_format($product->price) }} تومان</p>
+                    class="flex min-h-[290px] flex-col rounded-xl border border-[#393E46]/15 bg-[#EEEEEE] p-3 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg cursor-pointer sm:min-h-[315px] sm:p-4">
+                    <div class="flex h-40 w-full items-center justify-center rounded-lg  sm:h-44">
+                        <img class="h-full w-full object-contain p-2"
+                            src="{{ asset('storage/images/products/' . $product->image) }}"
+                            alt="{{ $product->name }}">
+                    </div>
+                    <h3 class="mt-3 line-clamp-2 min-h-10 text-center text-sm font-bold leading-5 text-[#222831]">
+                        {{ $product->name }}</h3>
+                    <p class="mt-1 text-center text-base font-bold text-[#00ADB5]">
+                        {{ number_format($product->price) }} تومان</p>
                     <a href="{{ route('product-show', ['product' => $product->id]) }}"
-                        class="text-blue-500 text-sm font-medium hover:underline mt-2">
+                        class="mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-[#00ADB5] px-3 py-2 text-xs font-medium text-[#EEEEEE] transition hover:bg-[#393E46] sm:px-4 sm:text-sm">
                         مشاهده محصول →
                     </a>
                 </div>
@@ -135,72 +211,60 @@
     </section>
 
     {{-- Promo Banner --}}
-    <section class="max-w-7xl mx-auto px-4 py-10">
-        <div
-            class="flex flex-col-reverse md:flex-row items-stretch bg-gradient-to-l from-gray-200 to-black rounded-2xl shadow-xl overflow-hidden border border-gray-100/50">
-            <div class="flex-1 p-8 md:p-12 flex flex-col justify-center text-center md:text-right">
-                <span
-                    class="inline-block bg-red-100 text-red-600 text-xs font-bold px-4 py-1.5 rounded-full mb-4 self-center md:self-start">
-                    فروش ویژه
-                </span>
-                <h2 class="text-2xl md:text-4xl font-bold text-gray-800 leading-tight">
-                    تا ۲۰٪ تخفیف
-                </h2>
-                <p class="text-gray-500 text-base md:text-lg mt-3 max-w-md mx-auto md:mx-0">
-                    روی منتخب ساعت‌های مردانه
-                </p>
-                <div class="mt-6">
-                    {{-- فرض بر این است که یک محصول خاص برای بنر دارید --}}
-                    @if (isset($featuredProduct))
-                        <a href="{{ route('product-show', ['product' => $featuredProduct->id]) }}"
-                            class="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-all duration-300">
-                            مشاهده و خرید
-                            <svg class="w-5 h-5 rotate-180" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 5l7 7-7 7" />
-                            </svg>
-                        </a>
-                    @else
-                        <a href="{{ route('products') }}"
-                            class="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-all duration-300">
-                            مشاهده و خرید
-                            <svg class="w-5 h-5 rotate-180" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 5l7 7-7 7" />
-                            </svg>
-                        </a>
-                    @endif
-                </div>
-            </div>
-            <div class="w-full md:w-2/5 h-56 md:h-auto min-h-[200px] flex-shrink-0">
-                <img class="w-full h-full object-cover" src="{{ asset('images/banners/offer.webp') }}"
-                    alt="تخفیف ویژه">
-            </div>
-        </div>
-    </section>
+    <section class="mx-auto max-w-7xl px-4 py-7 sm:py-9">
 
+
+        <div class="grid grid-cols-1 gap-1 sm:grid-cols-2 lg:grid-cols-4">
+            <a href="{{ route('products') }}" class="group">
+                <img class="w-full object-cover transition-transform duration-500
+                               group-hover:scale-105"
+                    src="{{ asset('images/banners/1.webp') }}" alt="">
+            </a>
+            <a href="{{ route('products') }}" class="group">
+                <img class="w-full object-cover transition-transform duration-500
+                               group-hover:scale-105"
+                    src="{{ asset('images/banners/2.webp') }}" alt="">
+
+            </a>
+            <a href="{{ route('products') }}" class="group">
+                <img class="w-full object-cover transition-transform duration-500
+                               group-hover:scale-105"
+                    src="{{ asset('images/banners/3.webp') }}" alt="">
+
+            </a>
+            <a href="{{ route('products') }}" class="group">
+                <img class="w-full object-cover cursor-pointer transition-transform duration-500
+                               group-hover:scale-105"
+                    src="{{ asset('images/banners/4.webp') }}" alt="">
+            </a>
+
+
+
+
+        </div>
+
+    </section>
     {{-- Articles Section --}}
-    <section class="max-w-7xl mx-auto px-4 py-6 mb-10">
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="text-xl font-bold text-gray-800">آخرین مقالات</h2>
-            <a href="{{ route('articles') }}" class="text-blue-500 flex items-center gap-1 text-sm hover:underline">
+    <section class="mx-auto mb-8 max-w-7xl px-4 py-7 sm:py-9">
+        <div class="mb-4 flex items-center justify-between sm:mb-6">
+            <h2 class="border-b-2 border-[#00ADB5] pb-2 text-xl font-bold text-[#222831]">آخرین مقالات</h2>
+            <a href="{{ route('articles') }}" class="flex items-center gap-1 text-sm text-[#00ADB5] hover:underline">
                 مشاهده همه مقالات
                 <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
             </a>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5">
             @foreach ($articles as $article)
                 <a href="{{ route('article-show', ['article' => $article->id]) }}"
-                    class="flex flex-row items-center bg-white rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer overflow-hidden p-3 gap-3 border border-gray-100/50">
+                    class="flex flex-row items-center gap-3 overflow-hidden rounded-2xl border border-[#393E46]/15 bg-[#EEEEEE] p-3 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer">
                     <div class="flex-1 flex flex-col gap-1">
-                        <h3 class="font-bold text-base text-gray-800 line-clamp-2">{{ $article->title }}</h3>
-                        <p class="text-gray-400 text-xs line-clamp-2">{{ $article->excerpt ?? $article->description }}
+                        <h3 class="line-clamp-2 text-base font-bold text-[#222831]">{{ $article->title }}</h3>
+                        <p class="line-clamp-2 text-xs text-[#393E46]">
+                            {{ $article->excerpt ?? $article->description }}
                         </p>
-                        <div class="flex items-center gap-1 text-gray-400 text-xs font-medium">
+                        <div class="flex items-center gap-1 text-xs font-medium text-[#393E46]">
                             <span>{{ \Carbon\Carbon::parse($article->created_at)->format('Y/m/d') }}</span>
                         </div>
                     </div>
