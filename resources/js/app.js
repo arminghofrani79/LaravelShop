@@ -1,4 +1,42 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Mobile header menu
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+
+    if (mobileMenu && mobileMenuButton) {
+        const mobileCategoryButton = document.getElementById('mobileCategoryButton');
+        const mobileCategoryList = document.getElementById('mobileCategoryList');
+        const mobileCategoryChevron = document.getElementById('mobileCategoryChevron');
+
+        if (mobileCategoryButton && mobileCategoryList) {
+            mobileCategoryButton.addEventListener('click', () => {
+                const isOpen = mobileCategoryList.classList.toggle('hidden') === false;
+                mobileCategoryButton.setAttribute('aria-expanded', String(isOpen));
+                mobileCategoryChevron?.classList.toggle('rotate-180', isOpen);
+            });
+        }
+
+        const toggleMobileMenu = (isOpen) => {
+            mobileMenu.classList.toggle('invisible', !isOpen);
+            mobileMenu.classList.toggle('opacity-0', !isOpen);
+            mobileMenu.classList.toggle('translate-y-2', !isOpen);
+            mobileMenu.classList.toggle('visible', isOpen);
+            mobileMenu.classList.toggle('opacity-100', isOpen);
+            mobileMenu.classList.toggle('translate-y-0', isOpen);
+            mobileMenuButton.setAttribute('aria-expanded', String(isOpen));
+        };
+
+        mobileMenuButton.addEventListener('click', () => {
+            toggleMobileMenu(mobileMenu.classList.contains('invisible'));
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+                toggleMobileMenu(false);
+            }
+        });
+    }
+
     // Header benefits bar: staggered entrance, hover feedback and mobile auto-scroll.
     const benefitsBar = document.querySelector('.benefits-bar');
     const benefits = [...document.querySelectorAll('.benefit-item')];

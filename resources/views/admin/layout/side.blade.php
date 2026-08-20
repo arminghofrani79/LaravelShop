@@ -1,9 +1,23 @@
 @include('layout.header')
 
 {{-- header --}}
-<header class="bg-cover bg-center bg-no-repeat w-full h-30 flex items-center px-4 md:px-8"
+<header
+    class="relative flex min-h-[140px] w-full items-center overflow-hidden bg-cover bg-left bg-no-repeat px-4 sm:min-h-[150px] md:px-8"
     style="background-image: url('{{ asset('images/banners/backgroundadmin.webp') }}');">
-    <h1 class="font-bold text-2xl text-gray-600 px-4 py-2 rounded-lg">پنل ادمین</h1>
+    <div class="absolute inset-0 bg-gradient-to-l from-[#F5F6F7] via-[#F5F6F8] to-transparent"></div>
+    <div class="relative z-10 mx-auto m-5 flex w-full max-w-7xl items-center justify-start rounded-2xl border-2 border-white p-5">
+        <div class="max-w-xl text-right">
+            <div class="mb-2 flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-[#00ADB5]"></span>
+                <span class="text-xs font-medium text-[#00ADB5] sm:text-sm">فروشگاه LaravelShop</span>
+            </div>
+            <h1 class="text-2xl font-bold text-[#222831] sm:text-3xl">پنل ادمین</h1>
+            <div class="mt-2 ml-auto mr-0 h-[2px] w-16 rounded-full bg-[#00ADB5]"></div>
+            <p class="mt-3 hidden max-w-md text-xs leading-7 text-[#393E46] sm:block md:text-base">
+                مدیریت محصولات، سفارش‌ها و اطلاعات فروشگاه در یک نگاه.
+            </p>
+        </div>
+    </div>
 </header>
 
 <main class="container mx-auto max-w-7xl px-4 py-8">
