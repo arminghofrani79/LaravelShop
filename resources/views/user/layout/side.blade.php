@@ -26,19 +26,30 @@
     <div class="grid grid-cols-1 items-start gap-6 lg:grid-cols-5 lg:gap-8">
 
         <!-- right col -->
-        <div class="lg:col-span-1 flex flex-col gap-4 rounded-2xl border border-[#393E46]/10 bg-white p-6 shadow-sm">
+        <div class="flex w-full flex-col gap-5 rounded-2xl border border-[#393E46]/10 bg-white p-5 shadow-sm lg:col-span-1 lg:p-6">
 
             <!-- profile -->
-            <div class="flex flex-col items-center border-b border-gray-100 pb-4">
+            <div class="flex shrink-0 items-center gap-3 border-b border-gray-100 pb-4 lg:flex-col lg:border-b lg:border-l-0 lg:pb-4 lg:pl-0">
                 <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center overflow-hidden mb-3">
                     <img src="{{ asset('images/icons/profile.webp') }}" alt="کاربر" class="w-full h-full object-cover">
                 </div>
-                <h3 class="text-lg font-bold text-gray-800">{{ Auth::user()->name }}</h3>
-                <p class="text-sm text-gray-500 text-center">{{ Auth::user()->email }}</p>
+                <div class="lg:text-center">
+                    <h3 class="text-lg font-bold text-gray-800">{{ Auth::user()->name }}</h3>
+                    <p class="text-sm text-gray-500">{{ Auth::user()->email }}</p>
+                </div>
             </div>
 
             <!-- meno links -->
-            <nav class="flex flex-col gap-2 mt-2">
+            <button id="mobileProfileMenuButton" type="button"
+                class="flex w-full items-center justify-between rounded-xl bg-[#00ADB5]/10 px-4 py-3 text-sm font-bold text-[#222831] md:hidden"
+                aria-expanded="false" aria-controls="profileMenuLinks">
+                منوی حساب کاربری
+                <svg id="mobileProfileMenuChevron" class="h-4 w-4 transition-transform duration-200" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            <nav id="profileMenuLinks" class="hidden flex-wrap gap-2 md:flex lg:flex-col lg:mt-2" aria-label="منوی حساب کاربری">
                 <a href="{{ route('user-profile') }}"
                     class="flex items-center gap-3 p-3 rounded-lg text-sm font-medium transition 
                     {{ request()->routeIs('user-profile', 'user-edit-profile') ? 'bg-[#00ADB5] text-white' : 'text-[#393E46] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5]' }}">

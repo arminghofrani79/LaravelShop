@@ -27,10 +27,19 @@
     <div class="grid grid-cols-1 items-start gap-6 lg:grid-cols-5 lg:gap-8">
 
         <!-- right col (Sidebar) -->
-        <div class="lg:col-span-1 flex flex-col gap-4 rounded-2xl border border-[#393E46]/10 bg-white p-6 shadow-sm">
+        <div class="w-full rounded-2xl border border-[#393E46]/10 bg-white p-5 shadow-sm lg:col-span-1 lg:p-6">
 
             <!-- meno links -->
-            <nav class="flex flex-col gap-2 mt-2">
+            <button id="mobileAdminMenuButton" type="button"
+                class="flex w-full items-center justify-between rounded-xl bg-[#00ADB5]/10 px-4 py-3 text-sm font-bold text-[#222831] md:hidden"
+                aria-expanded="false" aria-controls="adminMenuLinks">
+                منوی پنل مدیریت
+                <svg id="mobileAdminMenuChevron" class="h-4 w-4 transition-transform duration-200" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            <nav id="adminMenuLinks" class="hidden flex-wrap gap-2 md:flex lg:flex-col" aria-label="منوی پنل مدیریت">
                 <a href="{{ route('adminindex') }}"
                     class="flex items-center gap-3 p-3 rounded-lg text-sm font-medium transition 
                     {{ request()->routeIs('adminindex') ? 'bg-gray-600 text-white' : 'text-gray-600 hover:bg-gray-50' }}">

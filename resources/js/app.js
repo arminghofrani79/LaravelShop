@@ -37,6 +37,24 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Mobile profile/admin sidebar menus
+    [
+        ['mobileProfileMenuButton', 'profileMenuLinks', 'mobileProfileMenuChevron'],
+        ['mobileAdminMenuButton', 'adminMenuLinks', 'mobileAdminMenuChevron'],
+    ].forEach(([buttonId, menuId, chevronId]) => {
+        const menuButton = document.getElementById(buttonId);
+        const menuLinks = document.getElementById(menuId);
+        const chevron = document.getElementById(chevronId);
+
+        if (!menuButton || !menuLinks) return;
+
+        menuButton.addEventListener('click', () => {
+            const isOpen = menuLinks.classList.toggle('hidden') === false;
+            menuButton.setAttribute('aria-expanded', String(isOpen));
+            chevron?.classList.toggle('rotate-180', isOpen);
+        });
+    });
+
     // Header benefits bar: staggered entrance, hover feedback and mobile auto-scroll.
     const benefitsBar = document.querySelector('.benefits-bar');
     const benefits = [...document.querySelectorAll('.benefit-item')];

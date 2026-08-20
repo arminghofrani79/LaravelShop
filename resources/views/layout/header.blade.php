@@ -63,10 +63,15 @@
                 @auth
                     @if (Auth::user()->is_admin)
                         <a href="{{ route('adminindex') }}"
-                            class="hidden items-center gap-2 rounded-lg px-2 py-2 text-sm font-medium text-[#222831] transition hover:bg-[#393E46]/10 sm:flex"
+                            class="hidden items-center gap-2 rounded-lg px-2 py-2 text-sm font-medium text-[#222831] transition hover:bg-[#393E46]/10 md:flex"
                             title="پنل مدیریت">
                             <img src="{{ asset('images/icons/admin.webp') }}" alt="ادمین" class="h-5 w-5">
                             <span>مدیریت</span>
+                        </a>
+                        <a href="{{ route('adminindex') }}"
+                            class="flex h-10 w-10 items-center justify-center rounded-lg text-[#222831] transition hover:bg-[#393E46]/10 md:hidden"
+                            title="پنل مدیریت" aria-label="پنل مدیریت">
+                            <img src="{{ asset('images/icons/admin.webp') }}" alt="ادمین" class="h-5 w-5">
                         </a>
                     @endif
                     <a href="{{ route('user-profile') }}"
