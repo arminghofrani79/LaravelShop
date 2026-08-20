@@ -2,7 +2,7 @@
 @include('user.layout.side')
 
 {{-- left col --}}
-<div class="lg:col-span-3 flex flex-col gap-6">
+<div class="flex flex-col gap-6 lg:col-span-4">
 
     <div class="flex justify-start">
         <a href="{{ route('user-address-create') }}"

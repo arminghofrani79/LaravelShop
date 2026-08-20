@@ -20,13 +20,13 @@
     </div>
 </header>
 
-<main class="container mx-auto max-w-7xl px-4 py-8">
+<main class="mx-auto max-w-[1500px] px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
 
     <!-- maingrid -->
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+    <div class="grid grid-cols-1 items-start gap-6 lg:grid-cols-5 lg:gap-8">
 
         <!-- right col -->
-        <div class="lg:col-span-1 bg-white rounded-xl shadow-sm p-6 flex flex-col gap-4">
+        <div class="lg:col-span-1 flex flex-col gap-4 rounded-2xl border border-[#393E46]/10 bg-white p-6 shadow-sm">
 
             <!-- profile -->
             <div class="flex flex-col items-center border-b border-gray-100 pb-4">
@@ -41,25 +41,25 @@
             <nav class="flex flex-col gap-2 mt-2">
                 <a href="{{ route('user-profile') }}"
                     class="flex items-center gap-3 p-3 rounded-lg text-sm font-medium transition 
-                    {{ request()->routeIs('user-profile', 'user-edit-profile') ? 'bg-gray-600 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
+                    {{ request()->routeIs('user-profile', 'user-edit-profile') ? 'bg-[#00ADB5] text-white' : 'text-[#393E46] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5]' }}">
                     <img class="w-4 h-4" src="{{ asset('images/icons/profile2.webp') }}" alt="">
                     <span>اطلاعات حساب</span>
                 </a>
                 <a href="{{ route('user-order') }}"
                     class="flex items-center gap-3 p-3 rounded-lg text-sm font-medium transition 
-                    {{ request()->routeIs('user-order', 'user-watch-order') ? 'bg-gray-600 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
+                    {{ request()->routeIs('user-order', 'user-watch-order') ? 'bg-[#00ADB5] text-white' : 'text-[#393E46] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5]' }}">
                     <img class="w-4 h-4" src="{{ asset('images/icons/buy.webp') }}" alt="">
                     <span>سفارش‌های من</span>
                 </a>
                 <a href="{{ route('user-address') }}"
                     class="flex items-center gap-3 p-3 rounded-lg text-sm font-medium transition 
-                    {{ request()->routeIs('user-address', 'user-create-address', 'user-edit-address') ? 'bg-gray-600 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
+                    {{ request()->routeIs('user-address', 'user-create-address', 'user-edit-address') ? 'bg-[#00ADB5] text-white' : 'text-[#393E46] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5]' }}">
                     <img class="w-4 h-4" src="{{ asset('images/icons/address.webp') }}" alt="">
                     <span>آدرس‌ها</span>
                 </a>
                 <a href="#"
                     class="flex items-center gap-3 p-3 rounded-lg text-sm font-medium transition 
-                    {{ request()->routeIs('adminindex') ? 'bg-gray-600 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
+                    {{ request()->routeIs('adminindex') ? 'bg-[#00ADB5] text-white' : 'text-[#393E46] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5]' }}">
                     <img class="w-4 h-4" src="{{ asset('images/icons/love.webp') }}" alt="">
                     <span>علاقه‌مندی‌ها</span>
                 </a>

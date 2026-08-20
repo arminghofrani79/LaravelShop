@@ -2,7 +2,7 @@
 @include('admin.layout.side')
 
 <!-- left col -->
-<div class="lg:col-span-3 flex flex-col gap-6">
+<div class="flex flex-col gap-6 lg:col-span-4">
 
     {{-- products --}}
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">

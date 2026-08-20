@@ -20,14 +20,14 @@
     </div>
 </header>
 
-<main class="container mx-auto max-w-7xl px-4 py-8">
+<main class="admin-shell mx-auto max-w-[1500px] px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
 
 
     <!-- maingrid -->
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+    <div class="grid grid-cols-1 items-start gap-6 lg:grid-cols-5 lg:gap-8">
 
         <!-- right col (Sidebar) -->
-        <div class="lg:col-span-1 bg-white rounded-xl shadow-sm p-6 flex flex-col gap-4">
+        <div class="lg:col-span-1 flex flex-col gap-4 rounded-2xl border border-[#393E46]/10 bg-white p-6 shadow-sm">
 
             <!-- meno links -->
             <nav class="flex flex-col gap-2 mt-2">

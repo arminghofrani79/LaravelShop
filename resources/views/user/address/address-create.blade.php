@@ -1,7 +1,7 @@
 @section('title', 'افزودن آدرس | LaravelShop')
 @include('user.layout.side')
 
-<div class="lg:col-span-3 flex flex-col gap-6">
+<div class="flex flex-col gap-6 lg:col-span-4">
 
     {{-- header --}}
     <div class="flex flex-col items-center w-full gap-1 mb-2">
